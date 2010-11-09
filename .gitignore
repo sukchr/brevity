@@ -2,6 +2,6 @@ bin/
 obj/ 
 Debug/
 Release/
-**.user 
+*.user 
 *.suo 
 _ReSharper.*
