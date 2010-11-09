@@ -1,0 +1,107 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StringExtensions.cs" caret="176" fromTop="9" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StreamExtensions.cs" caret="0" fromTop="0" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:Stream/f:ToBase64.cs" caret="384" fromTop="13" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:String/f:Remove.cs" caret="349" fromTop="13" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StreamExtensions.cs" caret="0" fromTop="0" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:Stream/f:ToBase64.cs" caret="376" fromTop="13" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StreamExtensions.cs" caret="599" fromTop="25" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StreamExtensions.cs" caret="362" fromTop="9" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StreamExtensions.cs" caret="105" fromTop="8" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:Stream/f:ToBase64.cs" caret="255" fromTop="10" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StringExtensions.cs" caret="554" fromTop="17" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StringExtensions.cs" caret="363" fromTop="10" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StringExtensions.cs" caret="0" fromTop="13" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:String/f:Remove.cs" caret="0" fromTop="2" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:String/f:Remove.cs" caret="509" fromTop="18" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StringExtensions.cs" caret="1191" fromTop="18" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StreamExtensions.cs" caret="96" fromTop="5" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StringExtensions.cs" caret="116" fromTop="5" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StringExtensions.cs" caret="1436" fromTop="18" />
+      <File id="39E26D04-08B5-419B-960F-9E32AB6F80DE/f:StreamExtensions.cs" caret="568" fromTop="17" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:String/f:Remove.cs" caret="104" fromTop="4" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:Stream/f:ToBase64.cs" caret="36" fromTop="2" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:String/f:Remove.cs" caret="890" fromTop="24" />
+      <File id="B5F52ADA-CB43-4E96-9DBB-6DD67CAECFC5/d:String/f:Remove.cs" caret="890" fromTop="14" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir>C:\Program Files (x86)\NUnit 2.5.3\bin\net-2.0\</NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="public" priority="2" />
+      <Item value="static" priority="1" />
+      <Item value="File`0" priority="3" />
+      <Item value="this" priority="2" />
+      <Item value="string" priority="5" />
+      <Item value="null" priority="1" />
+      <Item value="IO" priority="2" />
+      <Item value="FileStream`0" priority="0" />
+      <Item value="test" priority="0" />
+      <Item value="using" priority="0" />
+      <Item value="sukchr" priority="0" />
+      <Item value="var" priority="3" />
+      <Item value="System" priority="1" />
+      <Item value="path" priority="1" />
+      <Item value="void" priority="1" />
+      <Item value="stream" priority="7" />
+      <Item value="new" priority="2" />
+      <Item value="MemoryStream`0" priority="0" />
+      <Item value="StreamReader`0" priority="0" />
+      <Item value="reader" priority="0" />
+      <Item value="BinaryReader`0" priority="0" />
+      <Item value="byte" priority="0" />
+      <Item value="binary" priority="0" />
+      <Item value="writer" priority="0" />
+      <Item value="text" priority="0" />
+      <Item value="if" priority="1" />
+      <Item value="for" priority="0" />
+      <Item value="gårdsnummer" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Open`0" priority="1" />
+      <Item value="Remove`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="OpenRead`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToBase64String`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.FileStream">
+      <Item value="Read`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamReader">
+      <Item value="ReadToEnd`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.BinaryReader">
+      <Item value="Read`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.Stream">
+      <Item value="Length" priority="1" />
+      <Item value="Dispose`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.StreamWriter">
+      <Item value="Write`0" priority="0" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

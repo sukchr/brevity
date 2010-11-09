@@ -1,0 +1,18 @@
+Utilities that I got bored of writing often. Mostly string extension methods.
+
+String extensions
+Save some text to a file
+"123".Save(@"C:\temp\file.txt");
+
+Open a file
+@"c:\temp\file.txt".Open(); //returns a Stream
+
+Remove some value from a string
+"%123%".Remove("%"); //returns "123"
+
+Stream extensions
+stream.ToBase64(); //returns base64 string of the given stream
+
+Composite examples:
+Open a file, then save the file as base64 to a new file
+@"c:\temp\data.doc".Open().ToBase64().Save(@"c:\temp\data.txt");
