@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace sukchr
 {
@@ -70,6 +71,17 @@ namespace sukchr
         {
             if (value.Length < visible) return value;
             return value.Substring(0, visible) + MaskChar.Repeat(value.Length - visible);
+        }
+
+        /// <summary>
+        /// Converts the JSON string back into an object of the given type.
+        /// </summary>
+        /// <typeparam name="TDeserializedType">The type of object to deserialize into.</typeparam>
+        /// <param name="json">The JSON string to deserialize.</param>
+        /// <returns></returns>
+        public static TDeserializedType FromJson<TDeserializedType>(this string json)
+        {
+            return JsonConvert.DeserializeObject<TDeserializedType>(json);
         }
     }
 }
