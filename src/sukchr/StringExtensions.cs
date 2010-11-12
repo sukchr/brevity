@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -13,11 +14,12 @@ namespace sukchr
         /// </summary>
         /// <param name="text"></param>
         /// <param name="path"></param>
-        public static void Save(this string text, string path)
+        public static string Save(this string text, string path)
         {
             if (path == null) throw new ArgumentNullException("path");
             var writer = new StreamWriter(path);
             writer.Write(text);
+            return text;
         }
 
         /// <summary>
@@ -82,6 +84,49 @@ namespace sukchr
         public static TDeserializedType FromJson<TDeserializedType>(this string json)
         {
             return JsonConvert.DeserializeObject<TDeserializedType>(json);
+        }
+
+        /// <summary>
+        /// Does a HTTP GET.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns>The response.</returns>
+        public static string Get(this string url)
+        {
+            using (var client = new WebClient()) return client.DownloadString(url);
+        }
+
+
+        /// <summary>
+        /// Does a HTTP POST.
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="upload"></param>
+        /// <returns>The response</returns>
+        public static string Post(this string url, string upload)
+        {
+            using (var client = new WebClient()) return client.UploadString(url, "POST", upload);
+        }
+
+        /// <summary>
+        /// Writes the given value to the console (with newline).
+        /// </summary>
+        /// <returns>The written value.</returns>
+        public static string Write(this string value)
+        {
+            Console.WriteLine(value);
+            return value;
+        }
+
+        /// <summary>
+        /// Writes the given value to the console (with newline).
+        /// </summary>
+        /// <returns>The written value.</returns>
+        public static string Write(this string value, params string[] args)
+        {
+            var write = string.Format(value, args);
+            Console.WriteLine(write);
+            return write;
         }
     }
 }
