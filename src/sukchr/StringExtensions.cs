@@ -128,5 +128,27 @@ namespace sukchr
             Console.WriteLine(write);
             return write;
         }
+
+        /// <summary>
+        /// Tries to convert the string  to an int. If the value is not a valid int, then 0 is returned.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int ToInt(this string value)
+        {
+            return ToInt(value, 0);
+        }
+
+        /// <summary>
+        /// Tries to convert the string  to an int. If the value is not a valid int, then the default value is returned.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="default"></param>
+        /// <returns></returns>
+        public static int ToInt(this string value, int @default)
+        {
+            int parsedValue;
+            return int.TryParse(value, out parsedValue) ? parsedValue : @default;
+        }
     }
 }
