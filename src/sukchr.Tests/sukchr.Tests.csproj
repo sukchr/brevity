@@ -53,6 +53,7 @@
     <Compile Include="String\FromJson.cs" />
     <Compile Include="String\Get.cs" />
     <Compile Include="String\Mask.cs" />
+    <Compile Include="String\Truncate.cs" />
     <Compile Include="String\Post.cs" />
     <Compile Include="String\Remove.cs" />
     <Compile Include="String\Repeat.cs" />

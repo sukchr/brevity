@@ -150,5 +150,24 @@ namespace sukchr
             int parsedValue;
             return int.TryParse(value, out parsedValue) ? parsedValue : @default;
         }
+
+        /// <summary>
+        /// The value used to indicate that the string was truncated.
+        /// </summary>
+        private const string TruncateIndicator = "...";
+
+        /// <summary>
+        /// Truncates the string. 
+        /// </summary>
+        /// <param name="value">The length of the truncated string.</param>
+        /// <param name="length"></param>
+        /// <returns>The trucated string.</returns>
+        public static string Truncate(this string value, int length)
+        {
+            if (value == null) throw new ArgumentNullException("value");
+            if (length < TruncateIndicator.Length) throw new ArgumentException(string.Format("length must be at least one larger than the length of the truncate indicator which is {0}.", TruncateIndicator.Length), "length");
+            if (value.Length <= length) return value;
+            return value.Substring(0, length - TruncateIndicator.Length) + TruncateIndicator;
+        }
     }
 }
