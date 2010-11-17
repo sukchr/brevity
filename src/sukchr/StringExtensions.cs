@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,13 +13,17 @@ namespace sukchr
         /// <summary>
         /// Saves the string to the given path.
         /// </summary>
-        /// <param name="text"></param>
-        /// <param name="path"></param>
-        public static string Save(this string text, string path)
+        /// <param name="text">The text to save.</param>
+        /// <param name="path">The path to save the text to.</param>
+        /// <param name="args">Optional arguments to the path.</param>
+        /// <returns>The saved text.</returns>
+        public static string Save(this string text, string path, params string[] args)
         {
             if (path == null) throw new ArgumentNullException("path");
-            var writer = new StreamWriter(path);
-            writer.Write(text);
+            using (var writer = new StreamWriter(string.Format(path, args)))
+            {
+                writer.Write(text);
+            }
             return text;
         }
 
@@ -43,6 +48,16 @@ namespace sukchr
         public static Stream Open(this string path)
         {
             return File.OpenRead(path); //need to dispose?
+        }
+
+        /// <summary>
+        /// Returns the text in the file at the given path.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string OpenText(this string path)
+        {
+            using(var stream = File.OpenText(path)) return stream.ReadToEnd();
         }
 
         /// <summary>
@@ -168,6 +183,17 @@ namespace sukchr
             if (length < TruncateIndicator.Length) throw new ArgumentException(string.Format("length must be at least one larger than the length of the truncate indicator which is {0}.", TruncateIndicator.Length), "length");
             if (value.Length <= length) return value;
             return value.Substring(0, length - TruncateIndicator.Length) + TruncateIndicator;
+        }
+
+        /// <summary>
+        /// Converts a string to a date.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static DateTime? ToDate(this string value)
+        {
+            DateTime result;
+            return DateTime.TryParse(value, null, DateTimeStyles.AllowWhiteSpaces, out result) ? new DateTime?(result) : null;
         }
     }
 }

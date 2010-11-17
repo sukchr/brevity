@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CultureInfoExtensions.cs" />
     <Compile Include="ObjectExtensions.cs" />
     <Compile Include="StreamExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
