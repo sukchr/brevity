@@ -57,7 +57,7 @@ namespace sukchr
         /// <returns></returns>
         public static string OpenText(this string path)
         {
-            using(var stream = File.OpenText(path)) return stream.ReadToEnd();
+            using (var stream = File.OpenText(path)) return stream.ReadToEnd();
         }
 
         /// <summary>
@@ -86,8 +86,20 @@ namespace sukchr
         /// <returns></returns>
         public static string Mask(this string value, int visible)
         {
+            if (value == null) throw new ArgumentNullException("value");
             if (value.Length < visible) return value;
             return value.Substring(0, visible) + MaskChar.Repeat(value.Length - visible);
+        }
+
+        /// <summary>
+        /// Masks half the string.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string Mask(this string value)
+        {
+            if (value == null) throw new ArgumentNullException("value");
+            return value.Mask(value.Length / 2);
         }
 
         /// <summary>

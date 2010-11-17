@@ -8,6 +8,13 @@ namespace sukchr.Tests.String
     public class Mask
     {
         [Test]
+        public void Given_no_mask_length_should_mask_half_the_input()
+        {
+            "secret".Mask().ShouldBe("sec***");
+            "secret1".Mask().ShouldBe("sec****");
+        }
+
+        [Test]
         public void Given_value_with_shorter_length_than_visibleLimit_outputs_the_entire_string()
         {
             "2412".Mask(6).ShouldBe("2412");
