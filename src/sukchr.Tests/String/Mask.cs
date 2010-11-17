@@ -12,6 +12,9 @@ namespace sukchr.Tests.String
         {
             "secret".Mask().ShouldBe("sec***");
             "secret1".Mask().ShouldBe("sec****");
+            string.Empty.Mask().ShouldBe(string.Empty);
+            "f".Mask().ShouldBe("*");
+            "fo".Mask().ShouldBe("f*");
         }
 
         [Test]
