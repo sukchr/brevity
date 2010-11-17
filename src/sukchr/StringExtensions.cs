@@ -19,7 +19,7 @@ namespace sukchr
         /// <returns>The saved text.</returns>
         public static string Save(this string text, string path, params string[] args)
         {
-            if (path == null) throw new ArgumentNullException("path");
+            if (path == null) throw new ArgumentNullException("path", "You must specify a path to save to.");
             using (var writer = new StreamWriter(string.Format(path, args)))
             {
                 writer.Write(text);
@@ -35,6 +35,7 @@ namespace sukchr
         /// <returns></returns>
         public static string Remove(this string value, params string[] remove)
         {
+            if (string.IsNullOrEmpty(value)) return value;
             if (remove == null) throw new ArgumentNullException("remove");
             if (remove.Length == 0) throw new ArgumentException("remove cannot be empty array");
             return remove.Aggregate(value, (current, t) => current.Replace(t, string.Empty));
@@ -47,6 +48,7 @@ namespace sukchr
         /// <returns></returns>
         public static Stream Open(this string path)
         {
+            if (path == null) throw new ArgumentNullException("path", "You must specify a path to open.");
             return File.OpenRead(path); //need to dispose?
         }
 
@@ -57,6 +59,7 @@ namespace sukchr
         /// <returns></returns>
         public static string OpenText(this string path)
         {
+            if (path == null) throw new ArgumentNullException("path", "You must specify a path to open text from.");
             using (var stream = File.OpenText(path)) return stream.ReadToEnd();
         }
 
@@ -68,6 +71,7 @@ namespace sukchr
         /// <returns></returns>
         public static string Repeat(this string value, int times)
         {
+            if (string.IsNullOrEmpty(value)) return value;
             if (times < 1) return string.Empty;
             if (times == 1) return value;
 
@@ -86,7 +90,7 @@ namespace sukchr
         /// <returns></returns>
         public static string Mask(this string value, int visible)
         {
-            if (value == null) throw new ArgumentNullException("value");
+            if (string.IsNullOrEmpty(value)) return value;
             if (value.Length < visible) return value;
             return value.Substring(0, visible) + MaskChar.Repeat(value.Length - visible);
         }
@@ -98,7 +102,7 @@ namespace sukchr
         /// <returns></returns>
         public static string Mask(this string value)
         {
-            if (value == null) throw new ArgumentNullException("value");
+            if (string.IsNullOrEmpty(value)) return value;
             return value.Mask(value.Length / 2);
         }
 
@@ -110,6 +114,7 @@ namespace sukchr
         /// <returns></returns>
         public static TDeserializedType FromJson<TDeserializedType>(this string json)
         {
+            if (json == null) throw new ArgumentNullException("json", "You must specify a JSON string to deserialize.");
             return JsonConvert.DeserializeObject<TDeserializedType>(json);
         }
 
@@ -120,6 +125,7 @@ namespace sukchr
         /// <returns>The response.</returns>
         public static string Get(this string url)
         {
+            if (url == null) throw new ArgumentNullException("url", "You must specify a URL to perform HTTP GET on.");
             using (var client = new WebClient()) return client.DownloadString(url);
         }
 
@@ -132,6 +138,7 @@ namespace sukchr
         /// <returns>The response</returns>
         public static string Post(this string url, string upload)
         {
+            if (url == null) throw new ArgumentNullException("url", "You must specify a URL to perform HTTP POST on.");
             using (var client = new WebClient()) return client.UploadString(url, "POST", upload);
         }
 
@@ -141,6 +148,7 @@ namespace sukchr
         /// <returns>The written value.</returns>
         public static string Write(this string value)
         {
+            if (string.IsNullOrEmpty(value)) return value;
             Console.WriteLine(value);
             return value;
         }
@@ -151,6 +159,7 @@ namespace sukchr
         /// <returns>The written value.</returns>
         public static string Write(this string value, params string[] args)
         {
+            if (string.IsNullOrEmpty(value)) return value;
             var write = string.Format(value, args);
             Console.WriteLine(write);
             return write;
@@ -191,7 +200,7 @@ namespace sukchr
         /// <returns>The truncated string.</returns>
         public static string Truncate(this string value, int length)
         {
-            if (value == null) throw new ArgumentNullException("value");
+            if (string.IsNullOrEmpty(value)) return value;
             if (length < TruncateIndicator.Length) throw new ArgumentException(string.Format("length must be at least one larger than the length of the truncate indicator which is {0}.", TruncateIndicator.Length), "length");
             if (value.Length <= length) return value;
             return value.Substring(0, length - TruncateIndicator.Length) + TruncateIndicator;
@@ -216,8 +225,8 @@ namespace sukchr
         /// <returns></returns>
         public static string EnsureTrailing(this string value, string ensure)
         {
-            if (value == null) throw new ArgumentNullException("value");
-            if (ensure == null) throw new ArgumentNullException("ensure");
+            if (string.IsNullOrEmpty(value)) return value;
+            if (ensure == null) throw new ArgumentNullException("ensure", "You must specify the trailing text to ensure.");
             if (value.EndsWith(ensure)) return value;
             return value + ensure;
         }

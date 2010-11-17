@@ -12,6 +12,7 @@ namespace sukchr
         /// <returns></returns>
         public static string ToBase64(this Stream stream)
         {
+            if (stream == null) throw new ArgumentNullException("stream", "You must specify the stream to convert to base64.");
             var reader = new BinaryReader(stream);
             var binary = new byte[stream.Length] ;
             reader.Read(binary, 0, (int)stream.Length); //TODO: will fail if stream is too large for byte array
