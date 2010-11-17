@@ -195,5 +195,19 @@ namespace sukchr
             DateTime result;
             return DateTime.TryParse(value, null, DateTimeStyles.AllowWhiteSpaces, out result) ? result : DateTime.MinValue;
         }
+
+        /// <summary>
+        /// Ensures that the string ends with the given text.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="ensure">The text to ensure at the end of the string.</param>
+        /// <returns></returns>
+        public static string EnsureTrailing(this string value, string ensure)
+        {
+            if (value == null) throw new ArgumentNullException("value");
+            if (ensure == null) throw new ArgumentNullException("ensure");
+            if (value.EndsWith(ensure)) return value;
+            return value + ensure;
+        }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="CultureTests.cs" />
     <Compile Include="Stream\ToBase64.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String\EnsureTrailing.cs" />
     <Compile Include="String\FromJson.cs" />
     <Compile Include="String\Get.cs" />
     <Compile Include="String\Mask.cs" />
