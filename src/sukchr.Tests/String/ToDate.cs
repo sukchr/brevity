@@ -12,27 +12,37 @@ namespace sukchr.Tests.String
         [Test]
         public void Norwegian_date()
         {
-            DateTime date = "24.12.2010".ToDate().Value;
-            Assert.AreEqual(2010, date.Year);
-            Assert.AreEqual(12, date.Month);
-            Assert.AreEqual(24, date.Day);
-            Assert.AreEqual(0, date.Hour);
-            Assert.AreEqual(0, date.Minute);
-            Assert.AreEqual(0, date.Second);
+            using (Culture.Scope("nb-NO"))
+            {
+                var date = "24.12.2010".ToDateTime();
+                Assert.AreEqual(2010, date.Year);
+                Assert.AreEqual(12, date.Month);
+                Assert.AreEqual(24, date.Day);
+                Assert.AreEqual(0, date.Hour);
+                Assert.AreEqual(0, date.Minute);
+                Assert.AreEqual(0, date.Second);
+            }
         }
 
         [Test]
         public void EnglishAmerican_date()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            using (Culture.Scope("en-US"))
+            {
+                var date = "12/24/2010".ToDateTime();
+                Assert.AreEqual(2010, date.Year);
+                Assert.AreEqual(12, date.Month);
+                Assert.AreEqual(24, date.Day);
+                Assert.AreEqual(0, date.Hour);
+                Assert.AreEqual(0, date.Minute);
+                Assert.AreEqual(0, date.Second);
+            }
+        }
 
-            DateTime date = "12/24/2010".ToDate().Value;
-            Assert.AreEqual(2010, date.Year);
-            Assert.AreEqual(12, date.Month);
-            Assert.AreEqual(24, date.Day);
-            Assert.AreEqual(0, date.Hour);
-            Assert.AreEqual(0, date.Minute);
-            Assert.AreEqual(0, date.Second);
+        [Test]
+        public void Given_invalid_date_returns_DateTime_Min()
+        {
+            Assert.AreEqual(DateTime.MinValue, "foo".ToDateTime());
         }
     }
 }

@@ -176,7 +176,7 @@ namespace sukchr
         /// </summary>
         /// <param name="value">The length of the truncated string.</param>
         /// <param name="length"></param>
-        /// <returns>The trucated string.</returns>
+        /// <returns>The truncated string.</returns>
         public static string Truncate(this string value, int length)
         {
             if (value == null) throw new ArgumentNullException("value");
@@ -189,11 +189,11 @@ namespace sukchr
         /// Converts a string to a date.
         /// </summary>
         /// <param name="value"></param>
-        /// <returns></returns>
-        public static DateTime? ToDate(this string value)
+        /// <returns>A DateTime representing the given string. <see cref="DateTime.MinValue"/> is returned if the value is not a valid date.</returns>
+        public static DateTime ToDateTime(this string value)
         {
             DateTime result;
-            return DateTime.TryParse(value, null, DateTimeStyles.AllowWhiteSpaces, out result) ? new DateTime?(result) : null;
+            return DateTime.TryParse(value, null, DateTimeStyles.AllowWhiteSpaces, out result) ? result : DateTime.MinValue;
         }
     }
 }

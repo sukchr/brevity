@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CultureScopeTests.cs" />
+    <Compile Include="CultureTests.cs" />
     <Compile Include="Stream\ToBase64.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="String\FromJson.cs" />
