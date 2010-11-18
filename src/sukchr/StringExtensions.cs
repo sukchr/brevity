@@ -3,6 +3,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using Newtonsoft.Json;
 
@@ -229,6 +230,17 @@ namespace sukchr
             if (ensure == null) throw new ArgumentNullException("ensure", "You must specify the trailing text to ensure.");
             if (value.EndsWith(ensure)) return value;
             return value + ensure;
+        }
+
+        /// <summary>
+        /// Opens an embedded resource with the given name.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static Stream OpenEmbeddedResource(this string name)
+        {
+            if (name == null) throw new ArgumentNullException("name", "You must specify a path to open.");
+            return Assembly.GetCallingAssembly().GetManifestResourceStream(name);
         }
     }
 }

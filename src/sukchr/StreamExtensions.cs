@@ -19,5 +19,16 @@ namespace sukchr
             stream.Dispose();
             return Convert.ToBase64String(binary);
         }
+
+        /// <summary>
+        /// Returns the string content of the stream.
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
+        public static string ToText(this Stream stream)
+        {
+            if (stream == null) return null;
+            using(var reader = new StreamReader(stream)) return reader.ReadToEnd();
+        }
     }
 }
