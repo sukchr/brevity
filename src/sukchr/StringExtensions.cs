@@ -54,17 +54,6 @@ namespace sukchr
         }
 
         /// <summary>
-        /// Returns the text in the file at the given path.
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public static string OpenText(this string path)
-        {
-            if (path == null) throw new ArgumentNullException("path", "You must specify a path to open text from.");
-            using (var stream = File.OpenText(path)) return stream.ReadToEnd();
-        }
-
-        /// <summary>
         /// Repeats the string the given number of times.
         /// </summary>
         /// <param name="value"></param>
