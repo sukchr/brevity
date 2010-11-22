@@ -21,5 +21,52 @@ namespace sukchr
         {
             return ToJson(@object, true);
         }
+		
+		/// <summary>
+		/// Returns true if the object is null.
+		/// </summary>
+		public static bool IsNull(this object @object)
+		{
+			return @object == null;
+		}
+		
+		/// <summary>
+		/// Returns true if the object is not null.
+		/// </summary>
+		public static bool IsNotNull(this object @object)
+		{
+			return !IsNull(@object);
+		}
+		
+		/// <summary>
+		/// Invokes the given action if the object is null.
+		/// </summary>
+		/// <returns>The object.</returns>
+		public static T IsNull<T>(this T @object, Action action) where T : class
+		{
+			if(action == null) throw new ArgumentNullException("action");
+			if(@object.IsNull()) action();
+			return @object;
+		}
+		
+		/// <summary>
+		/// Invokes the given action if the object is not null.
+		/// </summary>
+		/// <returns>The object.</returns>
+		public static T IsNotNull<T>(this T @object, Action action) where T : class
+		{
+			if(action == null) throw new ArgumentNullException("action");
+			if(@object.IsNotNull()) action();
+			return @object;
+		}
+		
+		/// <summary>
+		/// Throws an <see cref="ArgumentNullException"/> if the object is null.
+		/// </summary>
+		public static T Require<T>(this T @object, string parameterName) where T : class
+		{
+			if(@object.IsNull()) throw new ArgumentNullException(parameterName);
+			return @object;
+		}
     }
 }

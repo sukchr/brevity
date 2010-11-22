@@ -231,5 +231,24 @@ namespace sukchr
             if (name == null) throw new ArgumentNullException("name", "You must specify a path to open.");
             return Assembly.GetCallingAssembly().GetManifestResourceStream(name);
         }
+		
+		/// <summary>
+		/// Throws an <see cref="ArgumentNullException"/> if the string is null or empty.
+		/// </summary>
+		public static string Require(this string @value, string parameterName)
+		{
+			if(@value.IsNull()) throw new ArgumentNullException(parameterName);
+			if(@value == string.Empty) throw new ArgumentException(parameterName);
+			return @value;
+		}
+		
+		/// <summary>
+		/// Formats the string.
+		/// </summary>
+		public static string FormatString(this string @value, params string[] args)
+		{
+			if(string.IsNullOrEmpty(@value)) return @value;
+			return string.Format(@value, args);
+		}
     }
 }
