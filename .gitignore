@@ -2,6 +2,9 @@ bin/
 obj/
 Debug/
 Release/
+test-results/
 *.user
 *.suo
 _ReSharper.*
+*.userprefs
+*.pidb
