@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -268,9 +269,36 @@ namespace sukchr
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static string Join(this string[] @value)
+        public static string Join(this IEnumerable<string> @value)
         {
-            return string.Join(", ", @value);
+            return value == null ? null : string.Join(", ", @value.ToArray());
+        }
+
+        /// <summary>
+        /// Returns the given value surrounded by the given argument.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="wrap"></param>
+        /// <returns></returns>
+        public static string WrapWith(this string @value, string wrap)
+        {
+            if (value == null) return null;
+            if (wrap == null) throw new ArgumentNullException("wrap");
+            return string.Format("{0}{1}{0}", wrap, value);
+        }
+
+        /// <summary>
+        /// Wraps all the values in the given enumerable with the given wrap.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="wrap"></param>
+        /// <returns></returns>
+        public static IEnumerable<string> WrapWith(this IEnumerable<string> source, string wrap)
+        {
+            var result = new List<string>();
+            var enumerator = source.GetEnumerator();
+            while(enumerator.MoveNext()) result.Add(enumerator.Current.WrapWith(wrap));
+            return result;
         }
     }
 }
