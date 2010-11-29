@@ -245,10 +245,9 @@ namespace sukchr
 		/// <summary>
 		/// Formats the string.
 		/// </summary>
-		public static string FormatString(this string @value, params string[] args)
+		public static string FormatWith(this string @value, params string[] args)
 		{
-			if(string.IsNullOrEmpty(@value)) return @value;
-			return string.Format(@value, args);
+		    return string.IsNullOrEmpty(@value) ? @value : string.Format(@value, args);
 		}
 
         /// <summary>

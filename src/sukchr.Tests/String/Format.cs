@@ -1,16 +1,15 @@
-using System;
 using NUnit.Framework;
 using Shouldly;
 
-namespace sukchr.Tests
+namespace sukchr.Tests.String
 {
 	[TestFixture]
 	public class Format
 	{
 		[Test]
-		public void Format_string()
+		public void FormatWith()
 		{
-			"{0}-{1}".FormatString("foo", "bar").ShouldBe("foo-bar");
+			"{0}-{1}".FormatWith("foo", "bar").ShouldBe("foo-bar");
 		}
 	}
 }
