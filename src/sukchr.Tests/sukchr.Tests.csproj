@@ -59,6 +59,7 @@
     <Compile Include="String\IsEither.cs" />
     <Compile Include="String\Mask.cs" />
     <Compile Include="String\OpenEmbeddedResource.cs" />
+    <Compile Include="String\Join.cs" />
     <Compile Include="String\ToDate.cs" />
     <Compile Include="String\Truncate.cs" />
     <Compile Include="String\Post.cs" />

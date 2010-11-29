@@ -261,5 +261,16 @@ namespace sukchr
             if (args == null || args.Length == 0) throw new ArgumentException("you must specify at least one string to match", "args");
             return args.Any(arg => @value == arg);
         }
+
+        /// <summary>
+        /// Returns a concatenated string with all the values in the array. 
+        /// The values are separated by ", ".
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string Join(this string[] @value)
+        {
+            return string.Join(", ", @value);
+        }
     }
 }
