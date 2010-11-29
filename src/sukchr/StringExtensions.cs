@@ -250,5 +250,17 @@ namespace sukchr
 			if(string.IsNullOrEmpty(@value)) return @value;
 			return string.Format(@value, args);
 		}
+
+        /// <summary>
+        /// Returns true if the string matches any of the given arguments.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static bool IsEither(this string @value, params string[] args)
+        {
+            if (args == null || args.Length == 0) throw new ArgumentException("you must specify at least one string to match", "args");
+            return args.Any(arg => @value == arg);
+        }
     }
 }
