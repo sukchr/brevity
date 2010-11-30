@@ -58,6 +58,7 @@
     <Compile Include="String\FromJson.cs" />
     <Compile Include="String\Get.cs" />
     <Compile Include="String\IsEither.cs" />
+    <Compile Include="String\IsNeither.cs" />
     <Compile Include="String\Mask.cs" />
     <Compile Include="String\OpenEmbeddedResource.cs" />
     <Compile Include="String\Join.cs" />

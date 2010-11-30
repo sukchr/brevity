@@ -264,6 +264,17 @@ namespace sukchr
         }
 
         /// <summary>
+        /// Returns true if the string matches none of the given arguments.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public static bool IsNeither(this string @value, params string[] args)
+        {
+            return !@value.IsEither(args);
+        }
+
+        /// <summary>
         /// Returns a concatenated string with all the values in the array. 
         /// The values are separated by ", ".
         /// </summary>
