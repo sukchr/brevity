@@ -1,4 +1,5 @@
 using System;
+using System.Linq.Expressions;
 using Newtonsoft.Json;
 
 namespace sukchr
@@ -68,5 +69,18 @@ namespace sukchr
 			if(@object.IsNull()) throw new ArgumentNullException(parameterName);
 			return @object;
 		}
+
+        /// <summary>
+        /// Retrieve a property only if the object to retrieve the value from is not null.
+        /// </summary>
+        /// <typeparam name="TObjectType"></typeparam>
+        /// <typeparam name="TPropertyType"></typeparam>
+        /// <param name="object"></param>
+        /// <param name="propertyGetter"></param>
+        /// <returns></returns>
+        public static TPropertyType TryGet<TObjectType, TPropertyType>(this TObjectType @object, Expression<Func<TObjectType, TPropertyType>> propertyGetter) where TObjectType : class
+        {
+            return @object == null ? default(TPropertyType) : propertyGetter.Compile().Invoke(@object);
+        }
     }
 }
