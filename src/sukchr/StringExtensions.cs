@@ -323,5 +323,16 @@ namespace sukchr
             while(enumerator.MoveNext()) result.Add(enumerator.Current.WrapWith(wrap));
             return result;
         }
+
+        /// <summary>
+        /// True if the given string matches the regex pattern. 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="pattern"></param>
+        /// <returns></returns>
+        public static bool IsMatch(this string input, string pattern)
+        {
+            return Regex.IsMatch(input, pattern);
+        }
     }
 }
