@@ -276,13 +276,25 @@ namespace sukchr
 
         /// <summary>
         /// Returns a concatenated string with all the values in the array. 
-        /// The values are separated by ", ".
+        /// The values are separated by the given separator.
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">The values to join.</param>
+        /// <param name="separator">The string to insert between the joined values.</param>
         /// <returns></returns>
-        public static string Join(this IEnumerable<string> @value)
+        public static string Join(this IEnumerable<string> @value, string separator)
         {
-            return value == null ? null : string.Join(", ", @value.ToArray());
+            return value == null ? null : string.Join(separator, @value.Where(s => !string.IsNullOrEmpty(s)).ToArray());
+        }
+
+        /// <summary>
+        /// Returns a concatenated string with all the values in the array. 
+        /// The values are separated by the default separator: ", ".
+        /// </summary>
+        /// <param name="value">The values to join.</param>
+        /// <returns></returns>
+        public static string Join(this IEnumerable<string> value)
+        {
+            return value.Join(", ");
         }
 
         /// <summary>

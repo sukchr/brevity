@@ -27,6 +27,27 @@ namespace sukchr.Tests.String
             string[] values = {"foo"};
             values.Join().ShouldBe("foo");
         }
+
+        [Test]
+        public void Join_with_custom_separator()
+        {
+            string[] values = { "foo", "bar" };
+            values.Join(" ").ShouldBe("foo bar");
+        }
+
+        [Test]
+        public void Join_with_null_values()
+        {
+            string[] values = { "foo", null, "bar" };
+            values.Join(" ").ShouldBe("foo bar");
+        }
+
+        [Test]
+        public void Join_with_empty_values()
+        {
+            string[] values = { "foo", string.Empty, "bar" };
+            values.Join(" ").ShouldBe("foo bar");
+        }
     }
 }
 
