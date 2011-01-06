@@ -6,12 +6,31 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
 namespace sukchr
 {
     public static class StringExtensions
     {
+        private static int _indentLevel = 0;
+        private static readonly Indentation DisposableIndent = new Indentation();
+
+        public class Indentation : IDisposable
+        {
+            internal Indentation() { }
+            public void Dispose()
+            {
+                _indentLevel--;
+            }
+        }
+
+        public static Indentation Indent()
+        {
+            _indentLevel++;
+            return DisposableIndent;
+        }
+
         /// <summary>
         /// Saves the string to the given path.
         /// </summary>
@@ -140,8 +159,10 @@ namespace sukchr
         public static string Write(this string value)
         {
             if (string.IsNullOrEmpty(value)) return value;
+            var preserved = value;
+            if (_indentLevel > 0) value = "\t".Repeat(_indentLevel) + value.Replace("\n", "\n" + "\t".Repeat(_indentLevel));
             Console.WriteLine(value);
-            return value;
+            return preserved;
         }
 
         /// <summary>
@@ -151,9 +172,9 @@ namespace sukchr
         public static string Write(this string value, params string[] args)
         {
             if (string.IsNullOrEmpty(value)) return value;
-            var write = string.Format(value, args);
-            Console.WriteLine(write);
-            return write;
+            var formattedValue = string.Format(value, args);
+            formattedValue.Write();
+            return formattedValue;
         }
 
         /// <summary>
