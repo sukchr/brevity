@@ -253,24 +253,24 @@ namespace sukchr
             if (name == null) throw new ArgumentNullException("name", "You must specify a path to open.");
             return Assembly.GetCallingAssembly().GetManifestResourceStream(name);
         }
-		
-		/// <summary>
-		/// Throws an <see cref="ArgumentNullException"/> if the string is null or empty.
-		/// </summary>
-		public static string Require(this string @value, string parameterName)
-		{
-			if(@value.IsNull()) throw new ArgumentNullException(parameterName);
-			if(@value == string.Empty) throw new ArgumentException(parameterName);
-			return @value;
-		}
-		
-		/// <summary>
-		/// Formats the string.
-		/// </summary>
-		public static string FormatWith(this string @value, params string[] args)
-		{
-		    return string.IsNullOrEmpty(@value) ? @value : string.Format(@value, args);
-		}
+
+        /// <summary>
+        /// Throws an <see cref="ArgumentNullException"/> if the string is null or empty.
+        /// </summary>
+        public static string Require(this string @value, string parameterName)
+        {
+            if (@value.IsNull()) throw new ArgumentNullException(parameterName);
+            if (@value == string.Empty) throw new ArgumentException(parameterName);
+            return @value;
+        }
+
+        /// <summary>
+        /// Formats the string.
+        /// </summary>
+        public static string FormatWith(this string @value, params object[] args)
+        {
+            return string.IsNullOrEmpty(@value) ? @value : string.Format(@value, args);
+        }
 
         /// <summary>
         /// Returns true if the string matches any of the given arguments.
@@ -341,7 +341,7 @@ namespace sukchr
         {
             var result = new List<string>();
             var enumerator = source.GetEnumerator();
-            while(enumerator.MoveNext()) result.Add(enumerator.Current.WrapWith(wrap));
+            while (enumerator.MoveNext()) result.Add(enumerator.Current.WrapWith(wrap));
             return result;
         }
 
