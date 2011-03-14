@@ -30,5 +30,29 @@ namespace sukchr
             if (stream == null) return null;
             using(var reader = new StreamReader(stream)) return reader.ReadToEnd();
         }
+
+        /// <summary>
+        /// Write the stream to the given path. If the stream is seekable, the stream is repositioned at the beginning. 
+        /// The stream is not disposed. 
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <param name="path">The path to save the stream to.</param>
+        /// <returns>The stream.</returns>
+        public static Stream Save(this Stream stream, string path)
+        {
+            if (path == null) throw new ArgumentNullException("path");
+            var buffer = new byte[4 * 1024];
+            using (var output = File.Create(path))
+            {
+                int len;
+                while ((len = stream.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    output.Write(buffer, 0, len);
+                }
+            }
+
+            if(stream.CanSeek) stream.Position = 0;
+            return stream;
+        }
     }
 }
