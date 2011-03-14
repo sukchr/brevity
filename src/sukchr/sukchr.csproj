@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Culture.cs" />
     <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="Stopwatch.cs" />
     <Compile Include="StreamExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
