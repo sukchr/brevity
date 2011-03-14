@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Culture.cs" />
+    <Compile Include="MethodInfoExtensions.cs" />
     <Compile Include="ObjectExtensions.cs" />
     <Compile Include="Stopwatch.cs" />
     <Compile Include="StreamExtensions.cs" />

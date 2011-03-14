@@ -52,6 +52,7 @@
     <Compile Include="CultureTests.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />
     <Compile Include="Examples\WrapJoinFormat.cs" />
+    <Compile Include="MethodInfo\ToString.cs" />
     <Compile Include="Object\TryGet.cs" />
     <Compile Include="Stream\ToBase64.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
