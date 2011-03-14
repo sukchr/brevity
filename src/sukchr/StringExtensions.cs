@@ -169,7 +169,7 @@ namespace sukchr
         /// Writes the given value to the console (with newline).
         /// </summary>
         /// <returns>The written value.</returns>
-        public static string Write(this string value, params string[] args)
+        public static string Write(this string value, params object [] args)
         {
             if (string.IsNullOrEmpty(value)) return value;
             var formattedValue = string.Format(value, args);
