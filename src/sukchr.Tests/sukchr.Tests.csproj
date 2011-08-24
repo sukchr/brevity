@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CultureTests.cs" />
+    <Compile Include="String\Set.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />
     <Compile Include="Examples\WrapJoinFormat.cs" />
     <Compile Include="MethodInfo\ToString.cs" />

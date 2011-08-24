@@ -7,6 +7,7 @@ using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using Antlr.StringTemplate;
 using Newtonsoft.Json;
 
 namespace sukchr
@@ -354,6 +355,62 @@ namespace sukchr
         public static bool IsMatch(this string input, string pattern)
         {
             return Regex.IsMatch(input, pattern);
+        }
+
+        /// <summary>
+        /// Creates a StringTemplate of the string and sets an attribute for the template.
+        /// </summary>
+        /// <param name="input">The template.</param>
+        /// <param name="name">The name of the attribute.</param>
+        /// <param name="value">The value of the attribute.</param>
+        /// <returns>The template that can have further properties set.</returns>
+        public static Template Set(this string input, string name, string value)
+        {
+            return new Template(new StringTemplate(input)).Set(name, value);
+        }
+
+        /// <summary>
+        /// Wraps a StringTemplate to provide fluent setting of attributes.
+        /// </summary>
+        public sealed class Template
+        {
+            private readonly StringTemplate _template;
+
+            internal Template(StringTemplate template)
+            {
+                _template = template;
+            }
+
+            /// <summary>
+            /// Sets an attribute.
+            /// </summary>
+            /// <param name="name">The name of the attribute.</param>
+            /// <param name="value">The value of the attribute.</param>
+            /// <returns>The template that can have further properties set.</returns>
+            public Template Set(string name, string value)
+            {
+                _template.SetAttribute(name, value);
+                return this;
+            }
+
+            /// <summary>
+            /// Renders the template. Invoke this after having set all your attributes.
+            /// </summary>
+            /// <returns>The rendered template.</returns>
+            public string Render()
+            {
+                return _template.ToString();
+            }
+
+            /// <summary>
+            /// Enables implicit conversion from template to string.
+            /// </summary>
+            /// <param name="template"></param>
+            /// <returns></returns>
+            public static implicit operator string(Template template)
+            {
+                return template.ToString();
+            }
         }
     }
 }
