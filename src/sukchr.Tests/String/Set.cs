@@ -7,12 +7,22 @@ namespace sukchr.Tests.String
     public class Set
     {
         [Test]
-        public void name()
+        public void TemplateSet()
         {
             var result = "$greeting$ $subject$"
                 .Set("greeting", "hello")
                 .Set("subject", "world")
                 .Render();
+
+            result.ShouldBe("hello world");
+        }
+
+        [Test]
+        public void ImplicitConversion()
+        {
+            string result = "$greeting$ $subject$"
+                .Set("greeting", "hello")
+                .Set("subject", "world");
 
             result.ShouldBe("hello world");
         }
