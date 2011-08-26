@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using Antlr.StringTemplate;
@@ -409,8 +410,31 @@ namespace sukchr
             /// <returns></returns>
             public static implicit operator string(Template template)
             {
-                return template.ToString();
+                return template._template.ToString();
             }
+        }
+
+        /// <summary>
+        /// Computes the MD5 hash of the string. 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static string ComputeHash(this string input)
+        {
+            return ComputeHash(input, MD5.Create());
+        }
+
+        /// <summary>
+        /// Uses the given <see cref="HashAlgorithm"/> to compute a hash of the string. 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="algorithm"></param>
+        /// <returns></returns>
+        public static string ComputeHash(this string input, HashAlgorithm algorithm)
+        {
+            var binary = Encoding.UTF8.GetBytes(input);
+            var hash = algorithm.ComputeHash(binary);
+            return BitConverter.ToString(hash).Replace("-", string.Empty).ToLowerInvariant();
         }
     }
 }
