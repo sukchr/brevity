@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\log4net\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -50,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CultureTests.cs" />
+    <Compile Include="Exception\Log.cs" />
     <Compile Include="String\ComputeHash.cs" />
+    <Compile Include="String\Log.cs" />
     <Compile Include="String\Set.cs" />
     <Compile Include="XmlAsserter\XmlAsserterTests.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />
