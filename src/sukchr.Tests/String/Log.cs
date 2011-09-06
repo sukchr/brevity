@@ -1,5 +1,4 @@
 // ReSharper disable InconsistentNaming
-using System;
 using NUnit.Framework;
 
 namespace sukchr.Tests.String

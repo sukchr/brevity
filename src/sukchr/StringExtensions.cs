@@ -497,5 +497,26 @@ namespace sukchr
             log.Logger.Log(type, level, message, null);
             return message;
         }
+
+        ///<summary>
+        /// Uses the default encoding to get the bytes for the given string.
+        ///</summary>
+        ///<param name="text">The text to get binary from.</param>
+        ///<returns></returns>
+        public static byte[] ToBinary(this string text)
+        {
+            return ToBinary(text, Encoding.Default);
+        }
+
+        ///<summary>
+        /// Uses the given encoding to get the bytes for the given string.
+        ///</summary>
+        ///<param name="text">The text to get binary from.</param>
+        ///<param name="encoding">The encoding to use.</param>
+        ///<returns></returns>
+        public static byte[] ToBinary(this string text, Encoding encoding)
+        {
+            return string.IsNullOrEmpty(text) ? null : encoding.GetBytes(text);
+        }
     }
 }

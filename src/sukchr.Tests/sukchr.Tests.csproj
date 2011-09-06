@@ -58,7 +58,6 @@
     <Compile Include="String\ComputeHash.cs" />
     <Compile Include="String\Log.cs" />
     <Compile Include="String\Set.cs" />
-    <Compile Include="XmlAsserter\XmlAsserterTests.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />
     <Compile Include="Examples\WrapJoinFormat.cs" />
     <Compile Include="MethodInfo\ToString.cs" />
@@ -76,6 +75,7 @@
     <Compile Include="String\Mask.cs" />
     <Compile Include="String\OpenEmbeddedResource.cs" />
     <Compile Include="String\Join.cs" />
+    <Compile Include="String\ToBinary.cs" />
     <Compile Include="String\ToDate.cs" />
     <Compile Include="String\Truncate.cs" />
     <Compile Include="String\Post.cs" />
