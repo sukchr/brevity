@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Xml;
 using Antlr.StringTemplate;
 using log4net;
 using log4net.Core;
@@ -517,6 +518,18 @@ namespace sukchr
         public static byte[] ToBinary(this string text, Encoding encoding)
         {
             return string.IsNullOrEmpty(text) ? null : encoding.GetBytes(text);
+        }
+
+        /// <summary>
+        /// Loads the string into an XML document.
+        /// </summary>
+        /// <param name="xmlString">The string that contains the XML.</param>
+        /// <returns></returns>
+        public static XmlDocument ToXml(this string xmlString)
+        {
+            var xmlDocument = new XmlDocument();
+            xmlDocument.LoadXml(xmlString);
+            return xmlDocument;
         }
     }
 }

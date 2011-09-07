@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Xml;
 
 namespace sukchr
 {
@@ -29,6 +30,19 @@ namespace sukchr
         {
             if (stream == null) return null;
             using(var reader = new StreamReader(stream)) return reader.ReadToEnd();
+        }
+
+        /// <summary>
+        /// Returns the XML content of the stream.
+        /// </summary>
+        /// <param name="xmlStream">A stream that contains XML data.</param>
+        /// <returns></returns>
+        public static XmlDocument ToXml(this Stream xmlStream)
+        {
+            if (xmlStream == null) return null;
+            var xml = new XmlDocument();
+            xml.Load(xmlStream);
+            return xml;
         }
 
         /// <summary>
