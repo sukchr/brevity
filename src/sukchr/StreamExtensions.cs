@@ -68,5 +68,25 @@ namespace sukchr
             if(stream.CanSeek) stream.Position = 0;
             return stream;
         }
+
+        /// <summary>
+        /// Converts the stream to a byte array.
+        /// </summary>
+        /// <param name="stream"></param>
+        /// <returns></returns>
+        public static byte[] ToBinary(this Stream stream)
+        {
+            //from http://stackoverflow.com/questions/221925/creating-a-byte-array-from-a-stream
+            var buffer = new byte[16 * 1024];
+            using (var ms = new MemoryStream())
+            {
+                int read;
+                while ((read = stream.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
     }
 }
