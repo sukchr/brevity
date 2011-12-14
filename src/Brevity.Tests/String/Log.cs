@@ -1,5 +1,6 @@
 // ReSharper disable InconsistentNaming
 
+using Brevity.Logging;
 using NUnit.Framework;
 
 namespace Brevity.Tests.String

@@ -3,7 +3,7 @@ using System.Diagnostics;
 using log4net;
 using log4net.Core;
 
-namespace Brevity
+namespace Brevity.Logging
 {
     public static class ExceptionExtensions
     {
