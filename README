@@ -1,10 +1,6 @@
 This project will contain misc utility functions that I find myself re-implementing frequently. Most of them are string extension methods. None of it is rocket science. The intention is to enable me to do more with less amount of code, and in some cases make the code more readable. As an example, here's a statement that opens a file, converts the file to a base64 string and then saves the base64 to a new file:
 
-```c#
 @"c:\temp\data.doc".Open().ToBase64().Save(@"c:\temp\data.txt");
-```
 
-Install via nuget
-```c#
+Install via nuget:
 PM> Install-Package Brevity
-```
