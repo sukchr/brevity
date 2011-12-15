@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Brevity</id>
+    <version>1.0</version>
+    <title>Brevity</title>
+    <authors>sukchr</authors>
+    <owners>sukchr</owners>
+    <projectUrl>https://github.com/sukchr/brevity</projectUrl>
+    <iconUrl>https://secure.gravatar.com/avatar/6ad24e3b848b0fbe347da7c229fcfad7</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Be brief!</description>
+    <references>
+      <reference file="Brevity.dll" />
+    </references>
+  </metadata>
+  <files>
+    <file src="bin\Release\StringTemplate.dll" target="lib/net35" />
+  </files>
+</package>
