@@ -4,4 +4,7 @@ This project will contain misc utility functions that I find myself re-implement
 @"c:\temp\data.doc".Open().ToBase64().Save(@"c:\temp\data.txt");
 ```
 
-Apply ilmerge with /internalize when using this library so that the client won't see the sukchr-assembly.
+Install via nuget
+```c#
+PM> Install-Package Brevity
+```

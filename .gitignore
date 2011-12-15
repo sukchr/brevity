@@ -10,3 +10,4 @@ _ReSharper.*
 *.userprefs
 *.pidb
 .packages.config.swp
+*.nupkg
