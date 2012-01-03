@@ -1,5 +1,6 @@
 // ReSharper disable InconsistentNaming
 
+using System;
 using NUnit.Framework;
 using Shouldly;
 
@@ -30,6 +31,18 @@ namespace Brevity.Tests.String
         public void Given_value_with_multiple_strings_to_remove_removes_the_values()
         {
             "1%2%3*".Remove("*", "%").ShouldBe("123");
+        }
+
+        [Test]
+        public void Case_sensitive_remove_is_default()
+        {
+            "hello WORLD".Remove("world").ShouldBe("hello WORLD");
+        }
+
+        [Test]
+        public void Case_insensitive_remove()
+        {
+            "hello WORLD".Remove(StringComparison.OrdinalIgnoreCase, "world").ShouldBe("hello ");
         }
     }
 }

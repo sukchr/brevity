@@ -59,10 +59,36 @@ namespace Brevity
         /// <returns></returns>
         public static string Remove(this string value, params string[] remove)
         {
+            return Remove(value, StringComparison.Ordinal, remove);
+        }
+
+        /// <summary>
+        /// Removes occurences of the given string.
+        /// </summary>
+        /// <param name="value">The string to remove from.</param>
+        /// <param name="stringComparison">Specify rules for the search.</param>
+        /// <param name="remove">The value to remove.</param>
+        /// <returns></returns>
+        public static string Remove(this string value, StringComparison stringComparison, params string[] remove)
+        {
             if (string.IsNullOrEmpty(value)) return value;
             if (remove == null) throw new ArgumentNullException("remove");
             if (remove.Length == 0) throw new ArgumentException("remove cannot be empty array");
-            return remove.Aggregate(value, (current, t) => current.Replace(t, string.Empty));
+
+            foreach (var r in remove)
+            {
+                var index = value.IndexOf(r, stringComparison);
+                
+                while(index != -1)
+                {
+                    if (index != -1)
+                        value = value.Remove(index, r.Length);
+
+                    index = value.IndexOf(r, stringComparison);
+                }
+            }
+
+            return value;
         }
 
         /// <summary>
