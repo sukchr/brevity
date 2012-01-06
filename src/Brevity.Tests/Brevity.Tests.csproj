@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Brevity.Tests</RootNamespace>
     <AssemblyName>Brevity.Tests</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assembly\GetInformationalVersion.cs" />
     <Compile Include="CultureTests.cs" />
     <Compile Include="Exception\Log.cs" />
     <Compile Include="Stream\ToBinary.cs" />

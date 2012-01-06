@@ -2,6 +2,7 @@
 
 using System;
 using NUnit.Framework;
+using Brevity.Logging;
 
 namespace Brevity.Tests.Exception
 {
