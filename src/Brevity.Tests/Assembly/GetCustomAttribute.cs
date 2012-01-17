@@ -10,7 +10,7 @@ using Shouldly;
 namespace Brevity.Tests.Assembly
 {
     [TestFixture]
-    public class GetInformationalVersion
+    public class GetCustomAttribute
     {
         [Test]
         public void Test()

@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Brevity
 {
-    public static class AssemblyExtension
+    public static class AssemblyExtensions
     {
         /// <summary>
         /// Gets a custom attribute set on the assembly. Null if the given attribute hasn't been set. If there are multiple attributes

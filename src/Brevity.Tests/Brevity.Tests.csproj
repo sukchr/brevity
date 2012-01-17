@@ -53,8 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assembly\GetInformationalVersion.cs" />
+    <Compile Include="Assembly\GetCustomAttribute.cs" />
     <Compile Include="CultureTests.cs" />
+    <Compile Include="Exception\GetAllMessages.cs" />
     <Compile Include="Exception\Log.cs" />
     <Compile Include="Stream\ToBinary.cs" />
     <Compile Include="Stream\ToXml.cs" />

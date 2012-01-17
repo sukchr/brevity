@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AssemblyExtensions.cs" />
     <Compile Include="Culture.cs" />
+    <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="Logging\ExceptionExtensions.cs" />
     <Compile Include="Logging\StringExtensions.cs" />
     <Compile Include="MethodInfoExtensions.cs" />
