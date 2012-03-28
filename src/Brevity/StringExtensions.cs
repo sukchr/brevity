@@ -9,8 +9,8 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
-using Antlr.StringTemplate;
 using Newtonsoft.Json;
+using StringTemplate = Antlr4.StringTemplate.Template;
 
 namespace Brevity
 {
@@ -394,7 +394,7 @@ namespace Brevity
         /// <returns>The template that can have further properties set.</returns>
         public static Template Set(this string input, string name, string value)
         {
-            return new Template(new StringTemplate(input)).Set(name, value);
+            return new Template(new StringTemplate(input, '$', '$')).Set(name, value);
         }
 
         /// <summary>
@@ -417,7 +417,7 @@ namespace Brevity
             /// <returns>The template that can have further properties set.</returns>
             public Template Set(string name, string value)
             {
-                _template.SetAttribute(name, value);
+                _template.Add(name, value);
                 return this;
             }
 
@@ -427,7 +427,7 @@ namespace Brevity
             /// <returns>The rendered template.</returns>
             public string Render()
             {
-                return _template.ToString();
+                return _template.Render();
             }
 
             /// <summary>
@@ -437,7 +437,7 @@ namespace Brevity
             /// <returns></returns>
             public static implicit operator string(Template template)
             {
-                return template._template.ToString();
+                return template._template.Render();
             }
         }
 

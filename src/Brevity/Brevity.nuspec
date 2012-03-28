@@ -14,8 +14,4 @@
       <reference file="Brevity.dll" />
     </references>
   </metadata>
-  <files>
-    <file src="bin\Release\StringTemplate.dll" target="lib/net35" />
-    <file src="bin\Release\antlr.runtime.dll" target="lib/net35" />
-  </files>
 </package>
