@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace Brevity
 {
@@ -33,6 +34,8 @@ namespace Brevity
             var parameters = method.GetParameters();
 
             var args = string.Empty;
+            var nonPrimitiveArguments = new List<int>();
+
             if (arguments != null && arguments.Length > 0)
             {
                 var list = new List<string>(arguments.Select(
@@ -41,11 +44,19 @@ namespace Brevity
                         //TODO: support IEnumerable, "{1,2,3}"
 
                         string value;
-                        if (argument == null) value = "null";
+                        if (argument == null) value = "<null>";
                         else
                         {
                             var stringValue = argument as string;
-                            value = stringValue != null ? "'{0}'".FormatWith(stringValue) : argument.ToString();
+                            if (stringValue != null)
+                                value = @"""{0}""".FormatWith(stringValue);
+                            else if (argument.GetType().IsPrimitive)
+                                value = argument.ToString();
+                            else
+                            {
+                                nonPrimitiveArguments.Add(index);
+                                value = "<{0}>".FormatWith(nonPrimitiveArguments.Count);
+                            }
                         }
 
                         if (outputParameterNames) value = "{0}={1}".FormatWith(parameters[index].Name, value);
@@ -55,7 +66,14 @@ namespace Brevity
                 args = string.Join(",", list.ConvertAll(Convert.ToString).ToArray());
             }
 
-            return "{0}({1})".FormatWith(method.Name, args);
+            var message = new StringBuilder("{0}({1})".FormatWith(method.Name, args));
+            for(var i = 0 ; i < nonPrimitiveArguments.Count ; i++)
+            {
+                message.AppendLine("\n===== <{0}> =====".FormatWith(i + 1));
+                message.AppendLine(arguments[nonPrimitiveArguments[i]].ToJson());
+            }
+
+            return message.ToString();
         }
     }
 }
