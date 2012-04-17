@@ -64,6 +64,7 @@
     <Compile Include="Logging\StringExtensions.cs" />
     <Compile Include="MethodInfoExtensions.cs" />
     <Compile Include="ObjectExtensions.cs" />
+    <Compile Include="Result.cs" />
     <Compile Include="ServiceInterceptor.cs" />
     <Compile Include="StackTraceExtensions.cs" />
     <Compile Include="Stopwatch.cs" />
