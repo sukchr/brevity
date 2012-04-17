@@ -11,7 +11,9 @@ namespace Brevity
         /// </summary>
         public static string ToJson(this object @object, bool indent)
         {
-            if (@object == null) throw new ArgumentNullException("object", "You must specify the object to serialize to a JSON string.");
+            if (@object == null)
+                return "<null>";
+
             return JsonConvert.SerializeObject(@object, indent ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
         }
 
