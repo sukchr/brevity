@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -48,8 +49,14 @@ namespace Brevity
                         else
                         {
                             var stringValue = argument as string;
+
                             if (stringValue != null)
                                 value = @"""{0}""".FormatWith(stringValue);
+                            else if(argument is DateTime)
+                            {
+                                var dateTime = (DateTime)argument;
+                                value = string.Format("@{0}", dateTime.ToString(CultureInfo.CurrentCulture));
+                            }
                             else if (argument.GetType().IsPrimitive)
                                 value = argument.ToString();
                             else
