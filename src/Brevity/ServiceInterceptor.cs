@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using Castle.DynamicProxy;
 using log4net;
 
@@ -75,6 +77,8 @@ namespace Brevity
                     message += @" -> {0}".FormatWith(invocation.ReturnValue);
                 else if (invocation.ReturnValue is string) //TODO: StringBuilder?
                     message += @" -> ""{0}""".FormatWith(invocation.ReturnValue);
+                else if (invocation.ReturnValue is DateTime) //TODO: StringBuilder?
+                    message += string.Format(CultureInfo.CurrentCulture, @" -> ""@{0}""", invocation.ReturnValue);
                 //TODO: need to check for array?? 
                 else
                 {
