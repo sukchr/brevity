@@ -58,8 +58,8 @@ namespace Brevity.Logging
 
         private static string Log(this string message, Level level)
         {
-            var type = new StackTrace().GetCallingType(typeof(Brevity.StringExtensions));
-            var log = LogManager.GetLogger(type.Name);
+            var type = new StackTrace().GetCallingType(typeof(StringExtensions));
+            var log = LogManager.GetLogger(type.FullName);
             log.Logger.Log(type, level, message, null);
             return message;
         }
