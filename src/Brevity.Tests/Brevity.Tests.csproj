@@ -59,6 +59,12 @@
     <Compile Include="CultureTests.cs" />
     <Compile Include="Exception\GetAllMessages.cs" />
     <Compile Include="Exception\Log.cs" />
+    <Compile Include="ResourceManager\GetString.cs" />
+    <Compile Include="ResourceManager\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Stream\ToBinary.cs" />
     <Compile Include="Stream\ToXml.cs" />
     <Compile Include="String\ComputeHash.cs" />
@@ -96,6 +102,10 @@
     <Compile Include="Object\Require.cs" />
     <Compile Include="String\Require.cs" />
     <Compile Include="String\Format.cs" />
+    <EmbeddedResource Include="ResourceManager\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Brevity\Brevity.csproj">
