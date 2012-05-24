@@ -26,5 +26,16 @@ namespace Brevity.Tests.String
 
             result.ShouldBe("hello world");
         }
+
+        [Test]
+        public void CustomDelimiters()
+        {
+            var result = "<greeting> <subject>"
+                .Set("greeting", "hello")
+                .Set("subject", "world")
+                .Render(StringExtensions.Template.Delimiter.AngleBrackets);
+
+            result.ShouldBe("hello world");
+        }
     }
 }

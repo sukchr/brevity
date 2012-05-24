@@ -392,9 +392,9 @@ namespace Brevity
         /// <param name="name">The name of the attribute.</param>
         /// <param name="value">The value of the attribute.</param>
         /// <returns>The template that can have further properties set.</returns>
-        public static Template Set(this string input, string name, string value)
+        public static Template Set(this string input, string name, object value)
         {
-            return new Template(new StringTemplate(input, '$', '$')).Set(name, value);
+            return new Template(input).Set(name, value);
         }
 
         /// <summary>
@@ -402,9 +402,39 @@ namespace Brevity
         /// </summary>
         public sealed class Template
         {
-            private readonly StringTemplate _template;
+            /// <summary>
+            /// Defines the supported delimiters. 
+            /// </summary>
+            public enum Delimiter
+            {
+                /// <summary>
+                /// ( )
+                /// </summary>
+                RoundBrackets,
+                /// <summary>
+                /// &lt; &gt;
+                /// </summary>
+                AngleBrackets,
+                /// <summary>
+                ///  [ ]
+                /// </summary>
+                SquareBrackets,
+                /// <summary>
+                /// { }
+                /// </summary>
+                CurlyBrackets, 
+                /// <summary>
+                /// $
+                /// </summary>
+                Dollar
+            }
+            private readonly List<Tuple<string, object>> _nameValues = new List<Tuple<string, object>>();
+            /// <summary>
+            /// Holds the template text. Used to create the StringTemplate inside <see cref="Render()"/>.
+            /// </summary>
+            private readonly string _template;
 
-            internal Template(StringTemplate template)
+            internal Template(string template)
             {
                 _template = template;
             }
@@ -415,19 +445,60 @@ namespace Brevity
             /// <param name="name">The name of the attribute.</param>
             /// <param name="value">The value of the attribute.</param>
             /// <returns>The template that can have further properties set.</returns>
-            public Template Set(string name, string value)
+            public Template Set(string name, object value)
             {
-                _template.Add(name, value);
+                _nameValues.Add(new Tuple<string, object>(name, value));
                 return this;
             }
 
             /// <summary>
-            /// Renders the template. Invoke this after having set all your attributes.
+            /// Renders the template. Invoke this after having set all your attributes. Uses '$' as start and stop delimiters. 
             /// </summary>
             /// <returns>The rendered template.</returns>
             public string Render()
             {
-                return _template.Render();
+                return Render(Delimiter.Dollar);
+            }
+
+            /// <summary>
+            /// Renders the template using the given delimiters. The default delmiter is '$'. 
+            /// </summary>
+            /// <returns></returns>
+            public string Render(Delimiter delimiter)
+            {
+                char delimiterStartChar, delimiterStopChar;
+
+                switch(delimiter)
+                {
+                    case Delimiter.Dollar:
+                        delimiterStartChar = delimiterStopChar = '$';
+                        break;
+                    case Delimiter.AngleBrackets:
+                        delimiterStartChar = '<';
+                        delimiterStopChar = '>';
+                        break;
+                    case Delimiter.CurlyBrackets:
+                        delimiterStartChar = '{';
+                        delimiterStopChar = '}';
+                        break;
+                    case Delimiter.RoundBrackets:
+                        delimiterStartChar = '(';
+                        delimiterStopChar = ')';
+                        break;
+                    case Delimiter.SquareBrackets:
+                        delimiterStartChar = '[';
+                        delimiterStopChar = ']';
+                        break;
+                    default:
+                        throw new ArgumentException("Unsupported delimiter " + delimiter);
+                }
+
+                var template = new StringTemplate(_template, delimiterStartChar, delimiterStopChar);
+                foreach (var nameValue in _nameValues)
+                {
+                    template.Add(nameValue.Item1, nameValue.Item2);
+                }
+                return template.Render();
             }
 
             /// <summary>
@@ -437,7 +508,7 @@ namespace Brevity
             /// <returns></returns>
             public static implicit operator string(Template template)
             {
-                return template._template.Render();
+                return template.Render();
             }
         }
 
