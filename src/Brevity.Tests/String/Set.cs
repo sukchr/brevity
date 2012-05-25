@@ -33,7 +33,7 @@ namespace Brevity.Tests.String
             var result = "<greeting> <subject>"
                 .Set("greeting", "hello")
                 .Set("subject", "world")
-                .Render(StringExtensions.Template.Delimiter.AngleBrackets);
+                .Render(StringExtensions.Delimiter.AngleBrackets);
 
             result.ShouldBe("hello world");
         }

@@ -69,6 +69,7 @@
     <Compile Include="Stream\ToBinary.cs" />
     <Compile Include="Stream\ToXml.cs" />
     <Compile Include="String\ComputeHash.cs" />
+    <Compile Include="String\Capture.cs" />
     <Compile Include="String\Log.cs" />
     <Compile Include="String\Set.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />

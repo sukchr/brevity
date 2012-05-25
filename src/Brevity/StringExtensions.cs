@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -402,32 +403,6 @@ namespace Brevity
         /// </summary>
         public sealed class Template
         {
-            /// <summary>
-            /// Defines the supported delimiters. 
-            /// </summary>
-            public enum Delimiter
-            {
-                /// <summary>
-                /// ( )
-                /// </summary>
-                RoundBrackets,
-                /// <summary>
-                /// &lt; &gt;
-                /// </summary>
-                AngleBrackets,
-                /// <summary>
-                ///  [ ]
-                /// </summary>
-                SquareBrackets,
-                /// <summary>
-                /// { }
-                /// </summary>
-                CurlyBrackets, 
-                /// <summary>
-                /// $
-                /// </summary>
-                Dollar
-            }
             private readonly List<Tuple<string, object>> _nameValues = new List<Tuple<string, object>>();
             /// <summary>
             /// Holds the template text. Used to create the StringTemplate inside <see cref="Render()"/>.
@@ -466,34 +441,9 @@ namespace Brevity
             /// <returns></returns>
             public string Render(Delimiter delimiter)
             {
-                char delimiterStartChar, delimiterStopChar;
-
-                switch(delimiter)
-                {
-                    case Delimiter.Dollar:
-                        delimiterStartChar = delimiterStopChar = '$';
-                        break;
-                    case Delimiter.AngleBrackets:
-                        delimiterStartChar = '<';
-                        delimiterStopChar = '>';
-                        break;
-                    case Delimiter.CurlyBrackets:
-                        delimiterStartChar = '{';
-                        delimiterStopChar = '}';
-                        break;
-                    case Delimiter.RoundBrackets:
-                        delimiterStartChar = '(';
-                        delimiterStopChar = ')';
-                        break;
-                    case Delimiter.SquareBrackets:
-                        delimiterStartChar = '[';
-                        delimiterStopChar = ']';
-                        break;
-                    default:
-                        throw new ArgumentException("Unsupported delimiter " + delimiter);
-                }
-
-                var template = new StringTemplate(_template, delimiterStartChar, delimiterStopChar);
+                var delimiterChars = GetDelimiterChars(delimiter);
+                
+                var template = new StringTemplate(_template, delimiterChars.Item1, delimiterChars.Item2);
                 foreach (var nameValue in _nameValues)
                 {
                     template.Add(nameValue.Item1, nameValue.Item2);
@@ -566,6 +516,90 @@ namespace Brevity
             var xmlDocument = new XmlDocument();
             xmlDocument.LoadXml(xmlString);
             return xmlDocument;
+        }
+
+        /// <summary>
+        /// Extracts strings that are contained within the given delimiter.
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<string> Capture(this string text, Delimiter delimiter = Delimiter.CurlyBrackets)
+        {
+            var delimiters = GetDelimiterChars(delimiter);
+
+            //var matches = new Regex(@"(?<value>\([^\)]+)").Matches(text).GetEnumerator();
+            var matches = new Regex(@"(?<value>\{0}[^\{1}]+)".FormatWith(delimiters.Item1, delimiters.Item2)).Matches(text).GetEnumerator();
+
+            var list = new List<string>();
+            while (matches.MoveNext() && matches.Current != null)
+            {
+                var value = ((Match)matches.Current).Result("${value}")
+                    .Substring(1) //the start delimiter is included in the match.. 
+                    .Trim(); 
+                
+                if (!string.IsNullOrEmpty(value))
+                    list.Add(value);
+            }
+
+            return list;
+        }
+
+        /// <summary>
+        /// Defines the supported delimiters. 
+        /// </summary>
+        public enum Delimiter
+        {
+            /// <summary>
+            /// ( )
+            /// </summary>
+            RoundBrackets,
+            /// <summary>
+            /// &lt; &gt;
+            /// </summary>
+            AngleBrackets,
+            /// <summary>
+            ///  [ ]
+            /// </summary>
+            SquareBrackets,
+            /// <summary>
+            /// { }
+            /// </summary>
+            CurlyBrackets, 
+            /// <summary>
+            /// $
+            /// </summary>
+            Dollar
+        }
+
+        private static Tuple<char, char> GetDelimiterChars(Delimiter delimiter)
+        {
+            char delimiterStartChar, delimiterStopChar;
+
+            switch (delimiter)
+            {
+                case Delimiter.Dollar:
+                    delimiterStartChar = delimiterStopChar = '$';
+                    break;
+                case Delimiter.AngleBrackets:
+                    delimiterStartChar = '<';
+                    delimiterStopChar = '>';
+                    break;
+                case Delimiter.CurlyBrackets:
+                    delimiterStartChar = '{';
+                    delimiterStopChar = '}';
+                    break;
+                case Delimiter.RoundBrackets:
+                    delimiterStartChar = '(';
+                    delimiterStopChar = ')';
+                    break;
+                case Delimiter.SquareBrackets:
+                    delimiterStartChar = '[';
+                    delimiterStopChar = ']';
+                    break;
+                default:
+                    throw new ArgumentException("Unsupported delimiter " + delimiter);
+            }
+
+            return new Tuple<char, char>(delimiterStartChar, delimiterStopChar);
         }
     }
 }
