@@ -299,7 +299,13 @@ namespace Brevity
         /// </summary>
         public static string FormatWith(this string @value, params object[] args)
         {
-            return string.IsNullOrEmpty(@value) ? @value : string.Format(@value, args);
+            if (string.IsNullOrEmpty(@value)) 
+                return @value;
+
+            if (args == null)
+                return @value;
+
+            return string.Format(@value, args);
         }
 
         /// <summary>
