@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using Newtonsoft.Json;
 
@@ -9,12 +10,12 @@ namespace Brevity
         /// <summary>
         /// Returns the object as a JSON string.
         /// </summary>
-        public static string ToJson(this object @object, bool indent)
+        public static string ToJson(this object @object, bool indent, IList<JsonConverter> converters = null)
         {
             if (@object == null)
                 return "<null>";
 
-            return JsonConvert.SerializeObject(@object, indent ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
+            return JsonConvert.SerializeObject(@object, indent ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, Converters = converters});
         }
 
         /// <summary>
