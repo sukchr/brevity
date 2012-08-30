@@ -549,6 +549,16 @@ namespace Brevity
             return list;
         }
 
+		/// <summary>
+		/// Replaces multiple occurences of whitespace with a single whitespace.
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		public static string NormalizeWhitespace(this string text)
+		{
+			return Regex.Replace(text, @"\s+", " ");
+		}
+
         /// <summary>
         /// Defines the supported delimiters. 
         /// </summary>
