@@ -24,6 +24,15 @@ namespace Brevity.Tests.Assembly
             fileVersion.Version.ShouldBe("3.3.3.3");
             version.ShouldBe(null);
         }
+
+    	[Test]
+    	public void Calls_funct_when_attribute_not_found()
+    	{
+			var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+    		var version = assembly.GetCustomAttribute(() => new AssemblyVersionAttribute("foo"));
+    		version.ShouldNotBe(null);
+			version.Version.ShouldBe("foo");
+    	}
     }
 }
 

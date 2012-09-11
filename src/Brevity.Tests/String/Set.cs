@@ -17,6 +17,38 @@ namespace Brevity.Tests.String
             result.ShouldBe("hello world");
         }
 
+		[Test]
+		public void SomethingIsNotSet()
+		{
+			var result = "$greeting$ $subject$"
+				.Set("greeting", "hello")
+				.Render();
+
+			result.ShouldBe("hello ");
+		}
+
+		[Test]
+		public void SetNull()
+		{
+			var result = "$greeting$ $subject$"
+				.Set("greeting", "hello")
+				.Set("subject", null)
+				.Render();
+
+			result.ShouldBe("hello ");
+		}
+
+		[Test]
+		public void SetEmptyString()
+		{
+			var result = "$greeting$ $subject$"
+				.Set("greeting", "hello")
+				.Set("subject", string.Empty)
+				.Render();
+
+			result.ShouldBe("hello ");
+		}
+
         [Test]
         public void ImplicitConversion()
         {
