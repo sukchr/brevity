@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<saml:Assertion Version="2.0" ID="s2d2ebd1421a1537c3780e2bf9b7feb2e053dce855" IssueInstant="2012-07-16T12:33:01Z" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+  <Issuer>idporten-ver2.difi.no</Issuer>
+  <saml:Issuer>idporten-ver2.difi.no</saml:Issuer>
+  <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+    <ds:SignedInfo>
+      <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+      <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <ds:Reference URI="#s2d2ebd1421a1537c3780e2bf9b7feb2e053dce855">
+        <ds:Transforms>
+          <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+          <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+        </ds:Transforms>
+        <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <ds:DigestValue>0MBtzQPiCf5RfWLmLpMw7arF76M=</ds:DigestValue>
+      </ds:Reference>
+    </ds:SignedInfo>
+    <ds:SignatureValue>4ZsZSRE7Z26ChfHfJ0G7V2j3IEfPOd9+pynOpQ8cxkVf5ebBuEqYbs1YNN8qWt6xpRiijtZlY4Oi3g2hALI1V96ZWhJg8jajHvsubWT1Z74Y4E7fnWtQhwcBQkxgL+s2iGLeszdlzzmWBcDLjT+MaC9u9Yt7z+Ub8nGXklcZFaA=</ds:SignatureValue>
+    <ds:KeyInfo>
+      <ds:X509Data>
+        <ds:X509Certificate>MIIEJDCCAwygAwIBAgIDC+rIMA0GCSqGSIb3DQEBBQUAMEsxCzAJBgNVBAYTAk5PMR0wGwYDVQQKDBRCdXlwYXNzIEFTLTk4MzE2MzMyNzEdMBsGA1UEAwwUQnV5cGFzcyBDbGFzcyAzIENBIDEwHhcNMTAxMDIyMTI1NTIxWhcNMTMxMDIyMTI1NTIwWjCBjDELMAkGA1UEBhMCTk8xLDAqBgNVBAoMI0RJUkVLVE9SQVRFVCBGT1IgRk9SVkFMVE5JTkcgT0cgSUtUMQ0wCwYDVQQLDARURVNUMSwwKgYDVQQDDCNESVJFS1RPUkFURVQgRk9SIEZPUlZBTFROSU5HIE9HIElLVDESMBAGA1UEBRMJOTkxODI1ODI3MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD+Zg9d2CUAcXsrhhpuP2ddWHlu/gSzte6W4YIffl3DyGs7Iyo0UPQ0nzPX/2ICfqhPrcdhqnnId0Z6kkKWfnNf6SrFr5lBXUsyO4TJYgIDND751V4JMA+S6DlKuSHIAwMRN0rR2WuHwTBp7t90uuCmAIMksYFXI2DVGo+lCcfRzwIDAQABo4IBUTCCAU0wCQYDVR0TBAIwADAfBgNVHSMEGDAWgBQ4FObI8KmkA/ROPiKjW/LW4K1AdDAdBgNVHQ4EFgQUaQR4ctfLrsnT9g5/bh8b3fTBWH0wDgYDVR0PAQH/BAQDAgSwMBUGA1UdIAQOMAwwCgYIYIRCARoBAwIwgZUGA1UdHwSBjTCBijA0oDKgMIYuaHR0cDovL2NybC5wcm9kLmJ1eXBhc3Mubm8vY3JsL0JQQ2xhc3MzQ0ExLmNybDBSoFCgToZMbGRhcDovL2xkYXAucHJvZC5idXlwYXNzLm5vL2RjPUJ1eXBhc3MsZGM9Tk8sY249QnV5cGFzcyUyMENsYXNzJTIwMyUyMENBJTIwMTBBBggrBgEFBQcBAQQ1MDMwMQYIKwYBBQUHMAGGJWh0dHA6Ly9vY3NwLnByb2QuYnV5cGFzcy5uby9CUENsYXNzMjMwDQYJKoZIhvcNAQEFBQADggEBAAsrA+20KAuLToLai2hvK5irUF1X9u/xn0dJOSYC0D85zgL+CoMx6UCUh1syLLEfV6bMps4enObiyDZp4Mgtqec/eIs+kdF3/uF++LdE9zCCf6y78BR8HxqX2q4hzAMLvuKtVIo8bX+2pPXFYtzosviHAU5zc97s3b54hJpH3z7OZXFR0dJaXMPfeWYBDZtDSQ9CJS8sTxsgz33/FQlwkl5xdxbw775lASBtzoTjGbzrhtav+aVy03zOaGex6T6QZkehzjTi9oY6fJeNjo3wHazPXWvw1jHvjibEj7Q8NOrIHxEy/cprEMxkRjMCPqhGTzyE0aA/TYSgW15ewDAWTZI=</ds:X509Certificate>
+      </ds:X509Data>
+    </ds:KeyInfo>
+  </ds:Signature>
+  <saml:Subject>
+    <saml:NameID NameQualifier="idporten-ver2.difi.no" SPNameQualifier="lab.kommune24-7.no" Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">XZB22mk+XWScboMl1sK9QZwmgJ0z</saml:NameID>
+    <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+      <saml:SubjectConfirmationData NotOnOrAfter="2012-07-16T12:43:01Z" Recipient="http://lab.kommune24-7.no/minid/consumer.ashx" InResponseTo="_380ffeab-a74f-45a7-bd41-20ef564faa82" />
+    </saml:SubjectConfirmation>
+  </saml:Subject>
+  <saml:Conditions NotBefore="2012-07-16T12:23:01Z" NotOnOrAfter="2012-07-16T12:43:01Z">
+    <saml:AudienceRestriction>
+      <saml:Audience>lab.kommune24-7.no</saml:Audience>
+    </saml:AudienceRestriction>
+  </saml:Conditions>
+  <saml:AuthnStatement AuthnInstant="2012-07-16T12:33:01Z" SessionIndex="s2adcf9fa875b4519d295e7f96dd8ab26d22985a01">
+    <saml:AuthnContext>
+      <saml:AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</saml:AuthnContextClassRef>
+    </saml:AuthnContext>
+  </saml:AuthnStatement>
+  <saml:AttributeStatement>
+    <saml:Attribute Name="uid">
+      <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="xs:string" xsi:type="xs:string">02060750079</saml:AttributeValue>
+    </saml:Attribute>
+    <saml:Attribute Name="Culture">
+      <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="xs:string" xsi:type="xs:string">en</saml:AttributeValue>
+    </saml:Attribute>
+    <saml:Attribute Name="AuthMethod">
+      <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="xs:string" xsi:type="xs:string">Minid-PIN</saml:AttributeValue>
+    </saml:Attribute>
+    <saml:Attribute Name="SecurityLevel">
+      <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="xs:string" xsi:type="xs:string">3</saml:AttributeValue>
+    </saml:Attribute>
+    <saml:Attribute Name="OnBehalfOf">
+      <saml:AttributeValue xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="xs:string" xsi:type="xs:string">ssp9998</saml:AttributeValue>
+    </saml:Attribute>
+  </saml:AttributeStatement>
+</saml:Assertion>
