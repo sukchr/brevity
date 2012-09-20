@@ -29,31 +29,31 @@ namespace Brevity.Tests.MethodInfo
         [Test]
         public void Method_with_single_arg()
         {
-            Assert.AreEqual("Method2('foo')", _method2.ToString(new object[] { "foo" }));
+            Assert.AreEqual(@"Method2(""foo"")", _method2.ToString(new object[] { "foo" }));
         }
 
         [Test]
         public void Method_with_multiple_args()
         {
-            Assert.AreEqual("Method3('foo',3)", _method3.ToString(new object[] { "foo", 3 }));
+            Assert.AreEqual(@"Method3(""foo"",3)", _method3.ToString(new object[] { "foo", 3 }));
         }
 
         [Test]
         public void Method_with_stringEmpty_arg()
         {
-            Assert.AreEqual("Method3('',3)", _method3.ToString(new object[] { string.Empty, 3 }));
+            Assert.AreEqual(@"Method3("""",3)", _method3.ToString(new object[] { string.Empty, 3 }));
         }
 
         [Test]
         public void Method_with_null_arg()
         {
-            Assert.AreEqual("Method3(null,3)", _method3.ToString(new object[] { null, 3 }));
+            Assert.AreEqual("Method3(<null>,3)", _method3.ToString(new object[] { null, 3 }));
         }
 
         [Test]
         public void With_parameter_names()
         {
-            Assert.AreEqual("Method3(x=null,y=3)", _method3.ToString(true, new object[] { null, 3 }));
+            Assert.AreEqual("Method3(x=<null>,y=3)", _method3.ToString(true, new object[] { null, 3 }));
         }
     }
 
