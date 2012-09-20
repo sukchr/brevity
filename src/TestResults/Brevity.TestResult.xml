@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="c:\code\brevity\src\Brevity.Tests\Brevity.Tests.csproj" total="97" errors="2" failures="5" not-run="1" inconclusive="0" ignored="1" skipped="0" invalid="0" date="2012-09-20" time="12:19:20">
+  <environment nunit-version="2.6.0.12051" clr-version="2.0.50727.5456" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="c:\code\brevity\src" machine-name="IGCPF0D2E002" user="ig60" user-domain="I04" />
+  <culture-info current-culture="nb-NO" current-uiculture="en-US" />
+  <test-suite type="Project" name="c:\code\brevity\src\Brevity.Tests\Brevity.Tests.csproj" executed="True" result="Failure" success="False" time="2.986" asserts="0">
+    <results>
+      <test-suite type="Assembly" name="c:\code\brevity\src\Brevity.Tests\bin\Debug\Brevity.Tests.dll" executed="True" result="Failure" success="False" time="2.969" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Brevity" executed="True" result="Failure" success="False" time="2.969" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="Tests" executed="True" result="Failure" success="False" time="2.968" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="Assembly" executed="True" result="Success" success="True" time="0.094" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="GetCustomAttribute" executed="True" result="Success" success="True" time="0.093" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Assembly.GetCustomAttribute.Test" executed="True" result="Success" success="True" time="0.080" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="CultureTests" executed="True" result="Success" success="True" time="0.002" asserts="0">
+                    <results>
+                      <test-case name="Brevity.Tests.CultureTests.When_changing_culture_scope_should_revert_the_changes_after_disposal" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="Examples" executed="True" result="Success" success="True" time="0.011" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="WrapJoinFormat" executed="True" result="Success" success="True" time="0.010" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Examples.WrapJoinFormat.Test" executed="True" result="Success" success="True" time="0.010" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="Exception" executed="True" result="Success" success="True" time="0.159" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="GetAllMessages" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Exception.GetAllMessages.Exception_with_inner_exceptions" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.Exception.GetAllMessages.No_inner_exceptions" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Log" executed="True" result="Success" success="True" time="0.154" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Exception.Log.LogError" executed="True" result="Success" success="True" time="0.154" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="MethodInfo" executed="True" result="Failure" success="False" time="0.046" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="ToString" executed="True" result="Failure" success="False" time="0.046" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.MethodInfo.ToString.Method_with_multiple_args" executed="True" result="Failure" success="False" time="0.029" asserts="1">
+                            <failure>
+                              <message><![CDATA[  String lengths are both 16. Strings differ at index 8.
+  Expected: "Method3('foo',3)"
+  But was:  "Method3("foo",3)"
+  -------------------^
+]]></message>
+                              <stack-trace><![CDATA[at Brevity.Tests.MethodInfo.ToString.Method_with_multiple_args() in C:\code\brevity\src\Brevity.Tests\MethodInfo\ToString.cs:line 38
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Brevity.Tests.MethodInfo.ToString.Method_with_no_args" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                          <test-case name="Brevity.Tests.MethodInfo.ToString.Method_with_null_arg" executed="True" result="Failure" success="False" time="0.001" asserts="1">
+                            <failure>
+                              <message><![CDATA[  Expected string length 15 but was 17. Strings differ at index 8.
+  Expected: "Method3(null,3)"
+  But was:  "Method3(<null>,3)"
+  -------------------^
+]]></message>
+                              <stack-trace><![CDATA[at Brevity.Tests.MethodInfo.ToString.Method_with_null_arg() in C:\code\brevity\src\Brevity.Tests\MethodInfo\ToString.cs:line 50
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Brevity.Tests.MethodInfo.ToString.Method_with_single_arg" executed="True" result="Failure" success="False" time="0.001" asserts="1">
+                            <failure>
+                              <message><![CDATA[  String lengths are both 14. Strings differ at index 8.
+  Expected: "Method2('foo')"
+  But was:  "Method2("foo")"
+  -------------------^
+]]></message>
+                              <stack-trace><![CDATA[at Brevity.Tests.MethodInfo.ToString.Method_with_single_arg() in C:\code\brevity\src\Brevity.Tests\MethodInfo\ToString.cs:line 32
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Brevity.Tests.MethodInfo.ToString.Method_with_stringEmpty_arg" executed="True" result="Failure" success="False" time="0.001" asserts="1">
+                            <failure>
+                              <message><![CDATA[  String lengths are both 13. Strings differ at index 8.
+  Expected: "Method3('',3)"
+  But was:  "Method3("",3)"
+  -------------------^
+]]></message>
+                              <stack-trace><![CDATA[at Brevity.Tests.MethodInfo.ToString.Method_with_stringEmpty_arg() in C:\code\brevity\src\Brevity.Tests\MethodInfo\ToString.cs:line 44
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Brevity.Tests.MethodInfo.ToString.With_parameter_names" executed="True" result="Failure" success="False" time="0.000" asserts="1">
+                            <failure>
+                              <message><![CDATA[  Expected string length 19 but was 21. Strings differ at index 10.
+  Expected: "Method3(x=null,y=3)"
+  But was:  "Method3(x=<null>,y=3)"
+  ---------------------^
+]]></message>
+                              <stack-trace><![CDATA[at Brevity.Tests.MethodInfo.ToString.With_parameter_names() in C:\code\brevity\src\Brevity.Tests\MethodInfo\ToString.cs:line 56
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="Object" executed="True" result="Success" success="True" time="0.136" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="IsNotNull" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Object.IsNotNull.Is_false_when_object_is_null" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                          <test-case name="Brevity.Tests.Object.IsNotNull.Is_true_when_object_is_not_null" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="IsNull" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Object.IsNull.False_when_object_is_not_null" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.Object.IsNull.Lambda_executed_when_object_is_null" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.Object.IsNull.Lambda_not_executed_when_object_is_not_null" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.Object.IsNull.True_when_object_is_null" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Require" executed="True" result="Success" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Object.Require.Doesnt_throw_when_object_is_not_null" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.Object.Require.Throws_when_object_is_null" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="TryGet" executed="True" result="Success" success="True" time="0.121" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Object.TryGet.Object_is_not_null" executed="True" result="Success" success="True" time="0.119" asserts="0" />
+                          <test-case name="Brevity.Tests.Object.TryGet.Object_is_null" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="Stream" executed="True" result="Success" success="True" time="0.032" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="FileTests" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Stream.FileTests.ConvertFileToBase64AndSave" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ToBinary" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Stream.ToBinary.Test" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ToText" executed="True" result="Success" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Stream.ToText.Open_empty_stream" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.Stream.ToText.Open_stream_with_content" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ToXml" executed="True" result="Success" success="True" time="0.025" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.Stream.ToXml.Test" executed="True" result="Success" success="True" time="0.024" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="Namespace" name="String" executed="True" result="Failure" success="False" time="2.169" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="ComputeHash" executed="True" result="Success" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.ComputeHash.ComputeMD5" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                          <test-case name="Brevity.Tests.String.ComputeHash.ComputeSHA256" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="EnsureTrailing" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.EnsureTrailing.Given_string_does_not_end_with_argument_trailing_is_added" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.EnsureTrailing.Given_string_ends_with_argument_trailing_is_not_added" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.EnsureTrailing.Given_string_partially_ends_with_argument_trailing_is_ensured" executed="False" result="Ignored">
+                            <reason>
+                              <message><![CDATA[Not supported yet]]></message>
+                            </reason>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Format" executed="True" result="Success" success="True" time="0.001" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Format.FormatWith" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="FromJson" executed="True" result="Success" success="True" time="0.308" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.FromJson.Deserializes_json_into_object" executed="True" result="Success" success="True" time="0.308" asserts="2" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Get" executed="True" result="Success" success="True" time="0.573" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Get.Test" executed="True" result="Success" success="True" time="0.573" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Indent" executed="True" result="Success" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Indent.Test" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="IsEither" executed="True" result="Success" success="True" time="0.018" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.IsEither.Empty_string_when_argument_is_empty_string" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                          <test-case name="Brevity.Tests.String.IsEither.Empty_string_when_argument_is_not_empty_string" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.IsEither.Hit" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.IsEither.No_args_should_throw" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                          <test-case name="Brevity.Tests.String.IsEither.Null_when_argument_is_null" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="IsMatch" executed="True" result="Success" success="True" time="0.151" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.IsMatch.ShouldMatch" executed="True" result="Success" success="True" time="0.144" asserts="0" />
+                          <test-case name="Brevity.Tests.String.IsMatch.ShouldNotMatch" executed="True" result="Success" success="True" time="0.005" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="IsNeither" executed="True" result="Success" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.IsNeither.Value_is_either" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.IsNeither.Value_is_neither" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Join" executed="True" result="Success" success="True" time="0.004" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Join.Join_multiple_values" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Join.Join_no_values" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Join.Join_single_values" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Join.Join_with_custom_separator" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Join.Join_with_empty_values" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Join.Join_with_null_values" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Log" executed="True" result="Success" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Log.LogDebug" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Log.LogInfo" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Mask" executed="True" result="Success" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Mask.Given_no_mask_length_should_mask_half_the_input" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Mask.Given_value_with_longer_length_than_visibleLimit_outputs_rest_of_string_as_asterisks" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Mask.Given_value_with_same_length_as_visibleLimit_outputs_the_entire_string" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Mask.Given_value_with_shorter_length_than_visibleLimit_outputs_the_entire_string" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="OpenEmbeddedResource" executed="True" result="Success" success="True" time="0.002" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.OpenEmbeddedResource.Open_existing_resource" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.OpenEmbeddedResource.Open_non_existing_resource" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Post" executed="True" result="Success" success="True" time="0.547" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Post.Test" executed="True" result="Success" success="True" time="0.545" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Remove" executed="True" result="Success" success="True" time="0.022" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Remove.Case_insensitive_remove" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Remove.Case_sensitive_remove_is_default" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Remove.Given_value_with_multiple_occurences_of_the_string_to_removes_the_values" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Remove.Given_value_with_multiple_strings_to_remove_removes_the_values" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Remove.Given_value_with_no_occurences_of_the_string_to_remove_ouputs_the_string" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Remove.Given_value_with_single_occurence_of_the_string_to_removes_the_value" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Repeat" executed="True" result="Success" success="True" time="0.012" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Repeat.Multiple_repeat_should_output_the_string_the_given_number_of_times" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Repeat.Negative_repeat_should_ouput_emptyString" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Repeat.Single_repeat_should_output_the_string_as_is" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Repeat.Zero_repeat_should_ouput_emptyString" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Require" executed="True" result="Success" success="True" time="0.012" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Require.Doesnt_throw_when_string_is_defined" executed="True" result="Success" success="True" time="0.002" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Require.Throws_when_string_is_empty" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                          <test-case name="Brevity.Tests.String.Require.Throws_when_string_is_null" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Set" executed="True" result="Failure" success="False" time="0.109" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Set.ImplicitConversion" executed="True" result="Error" success="False" time="0.104" asserts="0">
+                            <failure>
+                              <message><![CDATA[System.TypeInitializationException : The type initializer for 'Antlr.StringTemplate.StringTemplate' threw an exception.
+  ----> System.IO.FileNotFoundException : Could not load file or assembly 'antlr.runtime, Version=2.7.7.3, Culture=neutral, PublicKeyToken=d7701e059243744f' or one of its dependencies. The system cannot find the file specified.]]></message>
+                              <stack-trace><![CDATA[at Antlr.StringTemplate.StringTemplate.get_GetNextTemplateCounter()
+at Antlr.StringTemplate.StringTemplate..ctor(StringTemplateGroup group, String template)
+at Brevity.StringExtensions.Set(String input, String name, String value) in C:\code\brevity\src\Brevity\StringExtensions.cs:line 397
+at Brevity.Tests.String.Set.ImplicitConversion() in C:\code\brevity\src\Brevity.Tests\String\Set.cs:line 23
+--FileNotFoundException
+at Antlr.StringTemplate.StringTemplateGroup..ctor(String name, String rootDir)
+at Antlr.StringTemplate.StringTemplate..cctor()
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                          <test-case name="Brevity.Tests.String.Set.TemplateSet" executed="True" result="Error" success="False" time="0.001" asserts="0">
+                            <failure>
+                              <message><![CDATA[System.TypeInitializationException : The type initializer for 'Antlr.StringTemplate.StringTemplate' threw an exception.
+  ----> System.IO.FileNotFoundException : Could not load file or assembly 'antlr.runtime, Version=2.7.7.3, Culture=neutral, PublicKeyToken=d7701e059243744f' or one of its dependencies. The system cannot find the file specified.]]></message>
+                              <stack-trace><![CDATA[at Antlr.StringTemplate.StringTemplate.get_GetNextTemplateCounter()
+at Antlr.StringTemplate.StringTemplate..ctor(StringTemplateGroup group, String template)
+at Brevity.StringExtensions.Set(String input, String name, String value) in C:\code\brevity\src\Brevity\StringExtensions.cs:line 397
+at Brevity.Tests.String.Set.TemplateSet() in C:\code\brevity\src\Brevity.Tests\String\Set.cs:line 12
+--FileNotFoundException
+at Antlr.StringTemplate.StringTemplateGroup..ctor(String name, String rootDir)
+at Antlr.StringTemplate.StringTemplate..cctor()
+]]></stack-trace>
+                            </failure>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ToBinary" executed="True" result="Success" success="True" time="0.005" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.ToBinary.Test" executed="True" result="Success" success="True" time="0.005" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ToDate" executed="True" result="Success" success="True" time="0.027" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.ToDate.EnglishAmerican_date" executed="True" result="Success" success="True" time="0.016" asserts="6" />
+                          <test-case name="Brevity.Tests.String.ToDate.Given_invalid_date_returns_DateTime_Min" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+                          <test-case name="Brevity.Tests.String.ToDate.Norwegian_date" executed="True" result="Success" success="True" time="0.003" asserts="6" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ToInt" executed="True" result="Success" success="True" time="0.006" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.ToInt.InvalidIntDefaultsToZero" executed="True" result="Success" success="True" time="0.003" asserts="0" />
+                          <test-case name="Brevity.Tests.String.ToInt.InvalidIntWithDefault" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                          <test-case name="Brevity.Tests.String.ToInt.ValidInt" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.ToInt.ValidIntWithDefault" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ToXml" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.ToXml.Test" executed="True" result="Success" success="True" time="0.002" asserts="1" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Truncate" executed="True" result="Success" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Truncate.Given_emptyString_returns_the_emptyString" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Truncate.Given_negative_truncateLength_throws_exception" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                          <test-case name="Brevity.Tests.String.Truncate.Given_truncateLength_shorter_than_truncateIndicator_throws_exception" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                          <test-case name="Brevity.Tests.String.Truncate.Given_value_longer_than_truncateLength_truncates_the_value" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Truncate.Given_value_shorter_than_truncateLength_returns_the_entire_value" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Truncate.Given_value_with_same_length_as_truncateLength_returns_the_entire_value" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="WrapWith" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.WrapWith.Empty_string_is_wrapped" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.WrapWith.Normal" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.WrapWith.Null_value_is_not_wrapped" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.WrapWith.Wrap_list" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="Write" executed="True" result="Success" success="True" time="0.003" asserts="0">
+                        <results>
+                          <test-case name="Brevity.Tests.String.Write.Simple_write" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                          <test-case name="Brevity.Tests.String.Write.With_format_string" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                  <test-suite type="TestFixture" name="x" executed="True" result="Success" success="True" time="0.281" asserts="0">
+                    <results>
+                      <test-case name="Brevity.Tests.x.FluentWrap" executed="True" result="Success" success="True" time="0.277" asserts="0" />
+                      <test-case name="Brevity.Tests.x.Test" executed="True" result="Success" success="True" time="0.001" asserts="0" />
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

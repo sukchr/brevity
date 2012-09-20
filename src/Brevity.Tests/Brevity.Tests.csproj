@@ -76,6 +76,7 @@
     <Compile Include="String\Log.cs" />
     <Compile Include="String\NormalizeWhitespace.cs" />
     <Compile Include="String\Set.cs" />
+    <Compile Include="XmlDocument\Select.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />
     <Compile Include="Examples\WrapJoinFormat.cs" />
     <Compile Include="MethodInfo\ToString.cs" />
@@ -133,6 +134,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\saml-assertion.xml" />
   </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>

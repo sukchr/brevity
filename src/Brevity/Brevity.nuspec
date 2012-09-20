@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Brevity</id>
-    <version>2.16</version>
+    <version>$version$</version>
     <title>Brevity</title>
     <authors>sukchr</authors>
     <owners>sukchr</owners>
