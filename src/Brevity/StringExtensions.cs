@@ -559,6 +559,48 @@ namespace Brevity
 			return Regex.Replace(text, @"\s+", " ");
 		}
 
+		/// <summary>
+		/// Encrypt text. Converts the text to binary (UTF-8), then encrypts the binary data. Then returns base64 of the binary data.  
+		/// </summary>
+		/// <param name="text">The data to encrypt.</param>
+		/// <param name="publicKey">The public key.</param>
+		/// <param name="symmetricAlgorithmName">Optional. The name of the symmetric algorithm to use. Defaults to "Rijndael" (128 bits AES). See http://msdn.microsoft.com/en-us/library/k74a682y(v=vs.100).aspx for a list of valid values.</param>
+		/// <returns></returns>
+		public static string Encrypt(this string text, RSA publicKey, string symmetricAlgorithmName = "Rijndael")
+		{
+			return text
+				.ToBinary(Encoding.UTF8)
+				.Encrypt(publicKey, symmetricAlgorithmName)
+				.ToBase64();
+		}
+
+		/// <summary>
+		/// Decrypt text. Converts the text to binary (UTF-8), then encrypts the binary data. Then returns base64 of the binary data.  
+		/// </summary>
+		/// <param name="text">The data to encrypt.</param>
+		/// <param name="publicKey">The public key.</param>
+		/// <param name="symmetricAlgorithmName">Optional. The name of the symmetric algorithm to use. Defaults to "Rijndael" (128 bits AES). See http://msdn.microsoft.com/en-us/library/k74a682y(v=vs.100).aspx for a list of valid values.</param>
+		/// <returns></returns>
+		public static string Decrypt(this string text, RSA publicKey, string symmetricAlgorithmName = "Rijndael")
+		{
+		    return Encoding.UTF8.GetString(text
+				.FromBase64()
+				.Decrypt(publicKey, symmetricAlgorithmName));
+		}
+
+		/// <summary>
+		/// Converts the given string to binary.
+		/// </summary>
+		/// <param name="base64"></param>
+		/// <returns></returns>
+		public static byte[] FromBase64(this string base64)
+		{
+			if (base64 == null)
+				return null;
+
+			return Convert.FromBase64String(base64);
+		}
+
         /// <summary>
         /// Defines the supported delimiters. 
         /// </summary>

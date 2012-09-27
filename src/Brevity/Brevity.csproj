@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyExtensions.cs" />
+    <Compile Include="ByteArrayExtensions.cs" />
     <Compile Include="Culture.cs" />
     <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="Logging\ExceptionExtensions.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Properties\VersionInfo.cs" />
     <Compile Include="ResourceManagerExtensions.cs" />
     <Compile Include="Result.cs" />
+    <Compile Include="RSACryptoServiceProviderExtensions.cs" />
     <Compile Include="StackTraceExtensions.cs" />
     <Compile Include="Stopwatch.cs" />
     <Compile Include="StreamExtensions.cs" />
