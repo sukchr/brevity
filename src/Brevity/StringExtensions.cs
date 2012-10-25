@@ -43,7 +43,7 @@ namespace Brevity
         /// <param name="path">The path to save the text to.</param>
         /// <param name="args">Optional arguments to the path.</param>
         /// <returns>The saved text.</returns>
-        public static string Save(this string text, string path, params string[] args)
+        public static string Save(this string text, string path, params object[] args)
         {
             if (path == null) throw new ArgumentNullException("path", "You must specify a path to save to.");
             using (var writer = new StreamWriter(string.Format(path, args)))
