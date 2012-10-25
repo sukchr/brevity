@@ -98,5 +98,21 @@ namespace Brevity
 
 			return result;
 		}
+
+		/// <summary>
+		/// Saves the binary data to the given path.
+		/// </summary>
+		/// <param name="binary">The binary data to save.</param>
+		/// <param name="path">The path to save the binary data to.</param>
+		/// <param name="args">Optional arguments to the path.</param>
+		/// <returns>The saved binary.</returns>
+		public static byte[] Save(this byte[] binary, string path, params object[] args)
+		{
+			if (path == null) throw new ArgumentNullException("path", "You must specify a path to save to.");
+
+			File.WriteAllBytes(string.Format(path, args), binary);
+
+			return binary;
+		}
 	}
 }
