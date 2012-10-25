@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -599,6 +600,19 @@ namespace Brevity
 				return null;
 
 			return Convert.FromBase64String(base64);
+		}
+
+		/// <summary>
+		/// Invokes <see cref="Process.Start(string)"/>.
+		/// </summary>
+		/// <param name="fileName"></param>
+		/// <returns></returns>
+		public static Process Start(this string fileName)
+		{
+			if (string.IsNullOrEmpty(fileName))
+				return null;
+
+			return Process.Start(fileName);
 		}
 
         /// <summary>
