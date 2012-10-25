@@ -162,12 +162,11 @@ namespace Brevity
         /// <summary>
         /// Does a HTTP GET.
         /// </summary>
-        /// <param name="url"></param>
         /// <returns>The response.</returns>
-        public static string Get(this string url)
+        public static string Get(this string url, params object[] args)
         {
             if (url == null) throw new ArgumentNullException("url", "You must specify a URL to perform HTTP GET on.");
-            using (var client = new WebClient()) return client.DownloadString(url);
+            using (var client = new WebClient()) return client.DownloadString(url.FormatWith(args));
         }
 
 
