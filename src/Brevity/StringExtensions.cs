@@ -229,6 +229,22 @@ namespace Brevity
             return int.TryParse(value, out parsedValue) ? parsedValue : @default;
         }
 
+		/// <summary>
+		/// Replaces invalid filenamechars with <paramref name="replaceWith"/> and trims the value.
+		/// </summary>
+		public static string ToFileName(this string value, char replaceWith = '_')
+		{
+			if(string.IsNullOrEmpty(value))
+				throw new ArgumentNullException("value");
+
+			var invalidChars = Path.GetInvalidFileNameChars();
+
+			if(replaceWith != '_' && invalidChars.Contains(replaceWith))
+				replaceWith = '_';
+
+			return invalidChars.Aggregate(value, (current, charachter) => current.Replace(charachter, replaceWith)).Trim();
+		}
+
         /// <summary>
         /// The value used to indicate that the string was truncated.
         /// </summary>
