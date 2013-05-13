@@ -15,7 +15,7 @@ namespace Brevity
             if (@object == null)
                 return "<null>";
 
-            return JsonConvert.SerializeObject(@object, indent ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, Converters = converters});
+            return JsonConvert.SerializeObject(@object, indent ? Formatting.Indented : Formatting.None, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, Converters = converters, ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
         }
 
         /// <summary>
