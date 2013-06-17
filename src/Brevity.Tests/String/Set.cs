@@ -1,3 +1,5 @@
+using System.Globalization;
+using Antlr4.StringTemplate;
 using NUnit.Framework;
 using Shouldly;
 
@@ -69,5 +71,30 @@ namespace Brevity.Tests.String
 
             result.ShouldBe("hello world");
         }
+
+	    [Test]
+	    public void CustomRenderers()
+	    {
+			var result = @"$greeting$ $subject; format=""upper""$"
+				.Set("greeting", "hello")
+				.Set("subject", "world")
+				.RegisterRenderer<string>(new ToUpperRenderer())
+				.Render();
+
+			result.ShouldBe("hello WORLD");
+	    }
     }
+
+	public class ToUpperRenderer : IAttributeRenderer
+	{
+		public string ToString(object obj, string formatString, CultureInfo culture)
+		{
+			var value = obj.ToString();
+
+			if(formatString == "upper")
+				return value.ToUpper();
+
+			return value;
+		}
+	}
 }

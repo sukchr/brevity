@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
@@ -11,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml;
+using Antlr4.StringTemplate;
 using Newtonsoft.Json;
 using StringTemplate = Antlr4.StringTemplate.Template;
 
@@ -426,6 +426,10 @@ namespace Brevity
         public sealed class Template
         {
             private readonly List<Tuple<string, object>> _nameValues = new List<Tuple<string, object>>();
+			/// <summary>
+			/// Holds any renderers added via <see cref="RegisterRenderer{T}"/>.
+			/// </summary>
+            private readonly List<Tuple<Type, IAttributeRenderer>> _renderers = new List<Tuple<Type, IAttributeRenderer>>();
             /// <summary>
             /// Holds the template text. Used to create the StringTemplate inside <see cref="Render()"/>.
             /// </summary>
@@ -448,6 +452,18 @@ namespace Brevity
                 return this;
             }
 
+			/// <summary>
+			/// Registers a renderer for the given type.
+			/// </summary>
+			/// <param name="attributeRenderer"></param>
+			/// <typeparam name="T"></typeparam>
+			/// <returns></returns>
+			public Template RegisterRenderer<T>(IAttributeRenderer attributeRenderer)
+			{
+				_renderers.Add(new Tuple<Type, IAttributeRenderer>(typeof(T), attributeRenderer));
+				return this;
+			}
+
             /// <summary>
             /// Renders the template. Invoke this after having set all your attributes. Uses '$' as start and stop delimiters. 
             /// </summary>
@@ -464,12 +480,16 @@ namespace Brevity
             public string Render(Delimiter delimiter)
             {
                 var delimiterChars = GetDelimiterChars(delimiter);
-                
+
                 var template = new StringTemplate(_template, delimiterChars.Item1, delimiterChars.Item2);
                 foreach (var nameValue in _nameValues)
                 {
                     template.Add(nameValue.Item1, nameValue.Item2);
                 }
+
+				foreach (var renderer in _renderers)
+					template.Group.RegisterRenderer(renderer.Item1, renderer.Item2);
+
                 return template.Render();
             }
 
