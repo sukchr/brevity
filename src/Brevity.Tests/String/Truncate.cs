@@ -39,6 +39,12 @@ namespace Brevity.Tests.String
             Assert.Throws<ArgumentException>(() => "foo".Truncate(2));
         }
 
+		[Test]
+		public void Given_truncateLength_shorter_than_truncateIndicator_doesnt_throw_exception_when_value_doesnt_need_truncating()
+		{
+			"f".Truncate(1).ShouldBe("f");
+		}
+
         [Test]
         public void Given_negative_truncateLength_throws_exception()
         {

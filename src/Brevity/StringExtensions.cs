@@ -259,8 +259,8 @@ namespace Brevity
         public static string Truncate(this string value, int length)
         {
             if (string.IsNullOrEmpty(value)) return value;
+			if (value.Length <= length) return value;
             if (length < TruncateIndicator.Length) throw new ArgumentException(string.Format("length must be at least one larger than the length of the truncate indicator which is {0}.", TruncateIndicator.Length), "length");
-            if (value.Length <= length) return value;
             return value.Substring(0, length - TruncateIndicator.Length) + TruncateIndicator;
         }
 
