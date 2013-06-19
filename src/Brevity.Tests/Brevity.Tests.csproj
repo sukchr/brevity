@@ -85,6 +85,7 @@
     <Compile Include="String\Set.cs" />
     <Compile Include="String\ToFileName.cs" />
     <Compile Include="XmlDocument\Select.cs" />
+    <Compile Include="XmlNode\Select.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />
     <Compile Include="Examples\WrapJoinFormat.cs" />
     <Compile Include="MethodInfo\ToString.cs" />
