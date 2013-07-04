@@ -1,6 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Xml;
+using System.Xml.Xsl;
 
 namespace Brevity
 {
@@ -95,6 +98,48 @@ namespace Brevity
 				return null;
 
 			return node.InnerText;
+		}
+
+		/// <summary>
+		/// Performs XSL transformation.
+		/// </summary>
+		/// <param name="xml">The XML to transform. If XML is null, then null is returned.</param>
+		/// <param name="xsl">The XSL to apply. If XSL is null, then XML is returned unchanged.</param>
+		/// <param name="xsltArguments">Optionally any arguments to pass to the XSL.</param>
+		/// <returns>The transformed XML.</returns>
+		public static XmlDocument Transform(this XmlDocument xml, XmlDocument xsl, object[] extensionObjects = null, Tuple<string, object>[] xsltArguments = null)
+		{
+			if (xml == null)
+				return null;
+
+			if(xsl == null)
+				return xml;
+
+			var compiledTransform = new XslCompiledTransform();
+			compiledTransform.Load(xsl);
+
+			var xsltArgumentList = new XsltArgumentList();
+
+			if(xsltArguments != null)
+				foreach (var tuple in xsltArguments)
+					if(tuple != null)
+						xsltArgumentList.AddParam(tuple.Item1, string.Empty, tuple.Item2);
+
+			if(extensionObjects != null)
+				foreach (var extensionObject in extensionObjects)
+					if(extensionObject != null)
+// ReSharper disable AssignNullToNotNullAttribute
+						xsltArgumentList.AddExtensionObject(extensionObject.GetType().Namespace, extensionObject);
+// ReSharper restore AssignNullToNotNullAttribute
+
+			var streamWriter = new StreamWriter(new MemoryStream(), Encoding.UTF8);
+			compiledTransform.Transform(xml, xsltArgumentList, streamWriter);
+			streamWriter.BaseStream.Position = 0;
+
+			var transformedXml = new XmlDocument();
+			transformedXml.Load(streamWriter.BaseStream);
+
+			return transformedXml;
 		}
 	}
 }
