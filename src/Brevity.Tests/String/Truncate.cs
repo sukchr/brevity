@@ -50,6 +50,12 @@ namespace Brevity.Tests.String
         {
             Assert.Throws<ArgumentException>(() => "foo".Truncate(-1));
         }
+
+	    [Test]
+	    public void CanSpecifyTruncateIndicator()
+	    {
+			"foobar".Truncate(5, "-").ShouldBe("foob-");
+	    }
     }
 }
 

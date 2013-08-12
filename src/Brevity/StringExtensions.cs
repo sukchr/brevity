@@ -250,18 +250,19 @@ namespace Brevity
         /// </summary>
         private const string TruncateIndicator = "...";
 
-        /// <summary>
-        /// Truncates the string. 
-        /// </summary>
-        /// <param name="value">The length of the truncated string.</param>
-        /// <param name="length"></param>
-        /// <returns>The truncated string.</returns>
-        public static string Truncate(this string value, int length)
+	    /// <summary>
+	    /// Truncates the string. 
+	    /// </summary>
+	    /// <param name="value">The length of the truncated string.</param>
+	    /// <param name="length"></param>
+	    /// <param name="truncateIndicator">A string that indicates that truncating has taken place.</param>
+	    /// <returns>The truncated string.</returns>
+	    public static string Truncate(this string value, int length, string truncateIndicator = TruncateIndicator)
         {
             if (string.IsNullOrEmpty(value)) return value;
 			if (value.Length <= length) return value;
-            if (length < TruncateIndicator.Length) throw new ArgumentException(string.Format("length must be at least one larger than the length of the truncate indicator which is {0}.", TruncateIndicator.Length), "length");
-            return value.Substring(0, length - TruncateIndicator.Length) + TruncateIndicator;
+            if (length < truncateIndicator.Length) throw new ArgumentException(string.Format("length must be at least one larger than the length of the truncate indicator which is {0}.", truncateIndicator.Length), "length");
+            return value.Substring(0, length - truncateIndicator.Length) + truncateIndicator;
         }
 
         /// <summary>
