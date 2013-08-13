@@ -638,6 +638,60 @@ namespace Brevity
 			return Convert.FromBase64String(base64);
 		}
 
+	    /// <summary>
+	    /// Parse a text into a dictionary.
+	    /// 
+	    /// NOT speed optimized. Will scan the contents once to get all items, then each item to find key/value. Additional scanning to find comment char.
+	    /// </summary>
+	    /// <param name="text">The text to parse.</param>
+	    /// <param name="keyValueSeparator">The symbol that separates the key from the value.</param>
+	    /// <param name="itemSeparator">The symbol that separates entries from eachother.</param>
+	    /// <param name="lineComment">The symbol to use for indicating a line comment.</param>
+	    /// <returns>Empty dictionary if no text or no values. Otherwise a dictionary populated with values.</returns>
+	    public static IDictionary<string, string> ToDictionary(this string text, string keyValueSeparator = "=", string itemSeparator = "\n", string lineComment = "#")
+		{
+			var dictionary = new Dictionary<string, string>();
+
+			if(string.IsNullOrEmpty(text))
+				return dictionary;
+
+			var items = text.Split(new[] {itemSeparator}, StringSplitOptions.RemoveEmptyEntries);
+
+			if(items.Length == 0)
+				return dictionary;
+
+			for (int i = 0; i < items.Length; i++ )
+			{
+				var item = items[i];
+
+				if (!string.IsNullOrEmpty(lineComment))
+				{
+					var commentIndex = item.IndexOf(lineComment, StringComparison.Ordinal);
+
+					if (commentIndex == 0) //whole line is commented, move to next line
+						continue;
+					
+					if (commentIndex > 0)
+						item = items[i].Substring(0, commentIndex);
+				}
+
+				var pair = item.Split(new[] { keyValueSeparator }, 2, StringSplitOptions.None);
+
+				var key = pair[0].Trim();
+				string value = null;
+
+				if (pair.Length > 1)
+					value = pair[1].Trim();
+
+				if (string.IsNullOrEmpty(key) && string.IsNullOrEmpty(value))
+					continue;
+
+				dictionary.Add(key, value);
+			}
+
+			return dictionary;
+		}
+
 		/// <summary>
 		/// Invokes <see cref="Process.Start(string)"/>.
 		/// </summary>
