@@ -6,7 +6,7 @@ using Shouldly;
 namespace Brevity.Tests.String
 {
 	[TestFixture]
-	public class Parse
+	public class ToDictionary
 	{
 		[Test]
 		public void DefaultSeparators()
