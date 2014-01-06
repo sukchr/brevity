@@ -693,6 +693,44 @@ namespace Brevity
 		}
 
 		/// <summary>
+		/// Removes illegal numeric character reference ("&amp;#xhhhh;") for XML 1.0. The valid character references are defined here: <a href="http://www.w3.org/TR/xml/#charsets">http://www.w3.org/TR/xml/#charsets</a>.
+		/// </summary>
+		public static string RemoveIllegalXmlEntityRefs(this string text)
+		{
+			if (string.IsNullOrEmpty(text))
+				return text;
+
+			const string pattern = @"&#x[0-9A-F]+;";
+
+			var regex = new Regex(pattern, RegexOptions.IgnoreCase);
+
+			var matches = regex.Matches(text);
+
+			for (var i = 0; i < matches.Count; i++)
+			{
+				var match = matches[i].Value;
+				var hexString = match.Remove("&#x", ";");
+
+				var hex = Int32.Parse(hexString, NumberStyles.HexNumber);
+
+				//valid accodring to w3c http://www.w3.org/TR/2006/REC-xml-20060816/#charsets - #x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF]
+				if (!(
+					hex == 0x9 ||
+					hex == 0xA ||
+					hex == 0xD ||
+					(hex >= 0x20 && hex <= 0xD7FF) ||
+					(hex >= 0xE000 && hex <= 0xFFFD) ||
+					(hex >= 0x01000 && hex <= 0x10FFFF)))
+				{
+					//remove invalid ref
+					text = text.Remove(match);
+				}
+			}
+
+			return text;
+		}
+
+		/// <summary>
 		/// Invokes <see cref="Process.Start(string)"/>.
 		/// </summary>
 		/// <param name="fileName"></param>

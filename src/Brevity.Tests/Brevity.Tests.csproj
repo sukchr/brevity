@@ -82,6 +82,7 @@
     <Compile Include="String\FromBase64.cs" />
     <Compile Include="String\Log.cs" />
     <Compile Include="String\NormalizeWhitespace.cs" />
+    <Compile Include="String\RemoveIllegalXmlEntityRefs.cs" />
     <Compile Include="String\ToDictionary.cs" />
     <Compile Include="String\Set.cs" />
     <Compile Include="String\ToFileName.cs" />
