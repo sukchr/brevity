@@ -695,7 +695,7 @@ namespace Brevity
 		/// <summary>
 		/// Removes illegal numeric character reference ("&amp;#xhhhh;") for XML 1.0. The valid character references are defined here: <a href="http://www.w3.org/TR/xml/#charsets">http://www.w3.org/TR/xml/#charsets</a>.
 		/// </summary>
-		public static string RemoveIllegalXmlEntityRefs(this string text)
+		public static string RemoveIllegalXmlNumericCharacterReference(this string text)
 		{
 			if (string.IsNullOrEmpty(text))
 				return text;
