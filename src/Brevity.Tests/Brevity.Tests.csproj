@@ -78,13 +78,14 @@
     <Compile Include="Stream\ToXml.cs" />
     <Compile Include="String\ComputeHash.cs" />
     <Compile Include="String\Capture.cs" />
+    <Compile Include="String\StringTemplateSet.cs" />
+    <Compile Include="String\VelocitySet.cs" />
     <Compile Include="String\EncryptDecrypt.cs" />
     <Compile Include="String\FromBase64.cs" />
     <Compile Include="String\Log.cs" />
     <Compile Include="String\NormalizeWhitespace.cs" />
     <Compile Include="String\RemoveIllegalXmlNumericCharacterReference.cs" />
     <Compile Include="String\ToDictionary.cs" />
-    <Compile Include="String\Set.cs" />
     <Compile Include="String\ToFileName.cs" />
     <Compile Include="XmlDocument\Select.cs" />
     <Compile Include="XmlDocument\Transform.cs" />
