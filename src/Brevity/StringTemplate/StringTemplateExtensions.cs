@@ -11,6 +11,14 @@ namespace Brevity.StringTemplate
 	public static class StringTemplateExtensions
 	{
 		/// <summary>
+		/// Converts the string to a template.
+		/// </summary>
+		public static Template ToTemplate(this string input)
+		{
+			return new Template(input);
+		}
+
+		/// <summary>
 		/// Creates a StringTemplate of the string and sets an attribute for the template.
 		/// </summary>
 		/// <param name="input">The template.</param>

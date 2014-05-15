@@ -9,6 +9,14 @@ namespace Brevity.Velocity
 	public static class VelocityExtensions
 	{
 		/// <summary>
+		/// Converts the string to a template (velocitycontext).
+		/// </summary>
+		public static VelocityContext ToTemplate(this string input)
+		{
+			return new VelocityContext(input);
+		}
+
+		/// <summary>
 		/// Creates a StringTemplate of the string and sets an attribute for the template.
 		/// </summary>
 		/// <param name="templateText">The template.</param>
