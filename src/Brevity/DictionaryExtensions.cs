@@ -5,7 +5,7 @@ namespace Brevity
 {
 	public static class DictionaryExtensions
 	{
-		public static string ToString(this Dictionary<string, string> dictionary, string keyValueSeparator, string itemPrefix = null, string itemPostfix = null, string itemSeparator = null)
+		public static string ToString(this IDictionary<string, string> dictionary, string keyValueSeparator, string itemPrefix = null, string itemPostfix = null, string itemSeparator = null)
 		{
 			if(dictionary == null)
 				return null;
