@@ -70,6 +70,7 @@
     <Compile Include="ByteArray\EncryptDecrypt.cs" />
     <Compile Include="ByteArray\ToBase64.cs" />
     <Compile Include="CultureTests.cs" />
+    <Compile Include="Dictionary\ToString.cs" />
     <Compile Include="Exception\GetAllMessages.cs" />
     <Compile Include="Exception\Log.cs" />
     <Compile Include="ResourceManager\GetString.cs" />
