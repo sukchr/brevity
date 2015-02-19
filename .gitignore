@@ -13,3 +13,4 @@ _ReSharper.*
 .packages.config.swp
 *.nupkg
 VersionInfo.cs
+.DS_Store
