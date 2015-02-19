@@ -12,7 +12,7 @@ namespace Brevity.Tests.Exception
         [Test]
         public void LogError()
         {
-            log4net.Config.BasicConfigurator.Configure();
+			Common.Logging.LogManager.Adapter = new Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter();
 
             try
             {

@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
-using log4net;
-using log4net.Core;
+using Common.Logging;
 
 namespace Brevity.Logging
 {
@@ -8,59 +7,77 @@ namespace Brevity.Logging
     {
         public static string LogInfo(this string message, params string[] args)
         {
-            return Log(message.FormatWith(args), Level.Info);
+            return Log(message.FormatWith(args), LogLevel.Info);
         }
 
         public static string LogInfo(this string message)
         {
-            return Log(message, Level.Info);
+            return Log(message, LogLevel.Info);
         }
 
         public static string LogDebug(this string message, params string[] args)
         {
-            return Log(message.FormatWith(args), Level.Debug);
+            return Log(message.FormatWith(args), LogLevel.Debug);
         }
 
         public static string LogDebug(this string message)
         {
-            return Log(message, Level.Debug);
+            return Log(message, LogLevel.Debug);
         }
 
         public static string LogWarn(this string message, params string[] args)
         {
-            return Log(message.FormatWith(args), Level.Warn);
+            return Log(message.FormatWith(args), LogLevel.Warn);
         }
 
         public static string LogWarn(this string message)
         {
-            return Log(message, Level.Warn);
+            return Log(message, LogLevel.Warn);
         }
 
         public static string LogError(this string message, params string[] args)
         {
-            return Log(message.FormatWith(args), Level.Error);
+            return Log(message.FormatWith(args), LogLevel.Error);
         }
 
         public static string LogError(this string message)
         {
-            return Log(message, Level.Error);
+            return Log(message, LogLevel.Error);
         }
 
         public static string LogFatal(this string message, params string[] args)
         {
-            return Log(message.FormatWith(args), Level.Fatal);
+            return Log(message.FormatWith(args), LogLevel.Fatal);
         }
 
         public static string LogFatal(this string message)
         {
-            return Log(message, Level.Fatal);
+            return Log(message, LogLevel.Fatal);
         }
 
-        private static string Log(this string message, Level level)
+        private static string Log(this string message, LogLevel level)
         {
             var type = new StackTrace().GetCallingType(typeof(StringExtensions));
             var log = LogManager.GetLogger(type.FullName);
-            log.Logger.Log(type, level, message, null);
+			switch (level)
+			{
+				case LogLevel.Debug:
+					log.Error(message);
+					break;
+				case LogLevel.Info:
+					log.Error(message);
+					break;
+				case LogLevel.Error:
+					log.Error(message);
+					break;
+				case LogLevel.Warn:
+					log.Error(message);
+					break;
+				case LogLevel.Fatal:
+					log.Error(message);
+					break;
+			}
+
             return message;
         }
     }

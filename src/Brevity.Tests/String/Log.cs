@@ -11,14 +11,14 @@ namespace Brevity.Tests.String
         [Test]
         public void LogInfo()
         {
-            log4net.Config.BasicConfigurator.Configure();
+			Common.Logging.LogManager.Adapter = new Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter();
             "foo".LogInfo();
         }
 
         [Test]
         public void LogDebug()
         {
-            log4net.Config.BasicConfigurator.Configure();
+			Common.Logging.LogManager.Adapter = new Common.Logging.Simple.ConsoleOutLoggerFactoryAdapter();
             "foo {0}".LogDebug("bar");
         }
     }
