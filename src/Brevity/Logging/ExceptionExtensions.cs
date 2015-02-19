@@ -1,7 +1,6 @@
 using System;
 using System.Diagnostics;
-using log4net;
-using log4net.Core;
+using Common.Logging;
 
 namespace Brevity.Logging
 {
@@ -9,24 +8,35 @@ namespace Brevity.Logging
     {
         public static TException LogError<TException>(this TException exception) where TException : Exception
         {
-            return Log(exception, Level.Error);
+			return Log(exception, LogLevel.Error);
         }
 
         public static TException LogWarn<TException>(this TException exception) where TException : Exception
         {
-            return Log(exception, Level.Warn);
+			return Log(exception, LogLevel.Warn);
         }
 
         public static TException LogFatal<TException>(this TException exception) where TException : Exception
         {
-            return Log(exception, Level.Fatal);
+			return Log(exception, LogLevel.Fatal);
         }
 
-        private static TException Log<TException>(this TException exception, Level level) where TException : Exception
+        private static TException Log<TException>(this TException exception, LogLevel level) where TException : Exception
         {
             var type = new StackTrace().GetCallingType(typeof(ExceptionExtensions));
             var log = LogManager.GetLogger(type.Name);
-            log.Logger.Log(type, level, exception.Message, exception);
+	        switch (level)
+	        {
+				case LogLevel.Error:
+					log.Error(exception.Message, exception);
+					break;
+				case LogLevel.Warn:
+					log.Warn(exception.Message, exception);
+					break;
+				case LogLevel.Fatal:
+					log.Fatal(exception.Message, exception);
+					break;
+	        }
             return exception;
         }
     }
