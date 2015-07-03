@@ -73,6 +73,7 @@
     <Compile Include="Dictionary\ToString.cs" />
     <Compile Include="Exception\GetAllMessages.cs" />
     <Compile Include="Exception\Log.cs" />
+    <Compile Include="FixedRecord\ToFixedRecord.cs" />
     <Compile Include="ResourceManager\GetString.cs" />
     <Compile Include="ResourceManager\Resource.Designer.cs">
       <AutoGen>True</AutoGen>

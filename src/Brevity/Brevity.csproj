@@ -60,6 +60,9 @@
     <Compile Include="Culture.cs" />
     <Compile Include="DictionaryExtensions.cs" />
     <Compile Include="ExceptionExtensions.cs" />
+    <Compile Include="FixedRecord\FixedColumnAttribute.cs" />
+    <Compile Include="FixedRecord\FixedRecordAttribute.cs" />
+    <Compile Include="FixedRecord\FixedRecordExtensions.cs" />
     <Compile Include="Logging\ExceptionExtensions.cs" />
     <Compile Include="Logging\StringExtensions.cs" />
     <Compile Include="MethodInfoExtensions.cs" />
