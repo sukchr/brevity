@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<eDocument xmlns="http://www.edocument.no">
+	<Meta>
+		<eDocumentInstanceID>de46161d-5acd-43d9-a045-28b2aa809952</eDocumentInstanceID>
+		<eDocumentTemplateID>00000000-0000-0000-0000-000000000000</eDocumentTemplateID>
+		<FormID></FormID>
+		<Shortname></Shortname>
+		<DeviceName></DeviceName>
+		<eDocumentTemplateVersionID>00000000-0000-0000-0000-000000000000</eDocumentTemplateVersionID>
+		<eDocumentTemplateVersionNumber>0</eDocumentTemplateVersionNumber>
+		<eDocumentTemplateName></eDocumentTemplateName>
+		<ViewerUrl></ViewerUrl>
+		<eDocumentServerVersion>6.0.7</eDocumentServerVersion>
+		<SubmittedOn iso8601="0001-01-01T00:00:00">01.01.0001 00:00:00</SubmittedOn>
+		<ReferenceNumber>IUYMLG</ReferenceNumber>
+	</Meta>
+	<form>
+		<page>
+			<tallMedVerdi invariant="1234.56">1234,56</tallMedVerdi>
+			<tallUtenVerdi />
+		</page>
+	</form>
+</eDocument>

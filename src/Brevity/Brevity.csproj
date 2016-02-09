@@ -82,6 +82,7 @@
     <Compile Include="Velocity\VelocityExtensions.cs" />
     <Compile Include="XmlDocumentExtensions.cs" />
     <Compile Include="XmlNodeExtensions.cs" />
+    <Compile Include="XmlSchemaExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Brevity.nuspec">

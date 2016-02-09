@@ -1,0 +1,84 @@
+﻿<?xml version="1.0"?>
+<xs:schema xmlns:edoc="http://www.edocument.no" elementFormDefault="qualified" targetNamespace="http://www.edocument.no" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="eDocument">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Meta">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="eDocumentInstanceID" />
+							<xs:element name="eDocumentTemplateID" />
+							<xs:element name="FormID" />
+							<xs:element name="Shortname" />
+							<xs:element name="DeviceName" />
+							<xs:element name="eDocumentTemplateVersionID" />
+							<xs:element name="eDocumentTemplateVersionNumber" />
+							<xs:element name="eDocumentTemplateName" />
+							<xs:element name="ViewerUrl" />
+							<xs:element name="eDocumentServerVersion" />
+							<xs:element name="SubmittedOn">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="iso8601" type="xs:dateTime" use="optional" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ReferenceNumber" />
+							<xs:element minOccurs="0" maxOccurs="1" name="EmailReceipt" />
+							<xs:element minOccurs="0" maxOccurs="1" name="SubmitUser">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Username" />
+										<xs:element minOccurs="0" maxOccurs="1" name="Namespace" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="form">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="page">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="tallMedVerdi">
+											<xs:annotation>
+												<xs:appinfo>
+													<edoc:Caption>tallMedVerdi</edoc:Caption>
+												</xs:appinfo>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="invariant" type="xs:double" use="optional" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="tallUtenVerdi">
+											<xs:annotation>
+												<xs:appinfo>
+													<edoc:Caption>tallUtenVerdi</edoc:Caption>
+												</xs:appinfo>
+											</xs:annotation>
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="invariant" type="xs:double" use="optional" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

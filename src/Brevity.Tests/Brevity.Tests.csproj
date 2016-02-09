@@ -99,6 +99,7 @@
     <Compile Include="XmlDocument\Select.cs" />
     <Compile Include="XmlDocument\Transform.cs" />
     <Compile Include="XmlNode\Select.cs" />
+    <Compile Include="XsdSchema\Validate.cs" />
     <EmbeddedResource Include="Data\embedded-resource.txt" />
     <Compile Include="Examples\WrapJoinFormat.cs" />
     <Compile Include="MethodInfo\ToString.cs" />
@@ -156,12 +157,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="XsdSchema\schema.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\saml-assertion.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data\Secret.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XsdSchema\valid.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XsdSchema\invalid.xml" />
   </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
 </Project>

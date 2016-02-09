@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using System.Xml.Schema;
 using System.Xml.Xsl;
 
 namespace Brevity
@@ -98,6 +99,14 @@ namespace Brevity
 				return null;
 
 			return node.InnerText;
+		}
+
+		public static bool IsValid(this XmlDocument xml, XmlSchema xsd, Action<ValidationEventArgs> onErrorAction = null)
+		{
+			if (xml == null) throw new ArgumentNullException("xml");
+			if (xsd == null) throw new ArgumentNullException("xsd");
+
+			return xsd.IsValid(xml, onErrorAction);
 		}
 
 		/// <summary>
